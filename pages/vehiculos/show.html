@@ -1,0 +1,233 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver Vehiculo </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" action="" enctype="multipart/form-data">
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div>
+              <input type="text" id="placa" class="form-control" placeholder="Placa" disabled>  
+          </div> 
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div>
+              <input type="text" id="cilindraje" class="form-control" placeholder="Cilindraje" disabled>  
+          </div> 
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-signature"></i></span>
+              </div>
+              <input type="text" id="modelo" class="form-control" placeholder="Modelo" disabled>  
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-signature"></i></span>
+              </div>
+              <input type="text" id="color" class="form-control" placeholder="Color" disabled>  
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div>
+              <input type="text" id="num_motor" class="form-control" placeholder="Serial del Motor" disabled>  
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div>
+              <input type="text" id="num_chasis" class="form-control" placeholder="Serial del Chasis" disabled>  
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-signature"></i></span>
+              </div>
+              <input type="text" id="linea" class="form-control" placeholder="Linea" disabled>  
+          </div>
+
+          <div class="form-group">
+              <label for="exampleSelectBorder">Tipo Vehiculo<code> &nbsp;*</code></label>
+              <select class="custom-select form-control-border" id="select-tipovehiculo" disabled>
+                <!-- <option>Value 1</option> -->
+
+              </select>
+            </div>
+
+          <div class="form-group">
+            <label for="exampleSelectBorder">Marca Vehiculo<code> &nbsp;*</code></label>
+            <select class="custom-select form-control-border" id="select-marcavehiculo" disabled>
+              <!-- <option>Value 1</option> -->
+
+            </select>
+          </div>
+
+            <!-- SOAT -->
+            <div class="form-group">
+              <label>Fecha SOAT:</label>
+                <div class="input-group date" id="soat" data-target-input="nearest">
+                    <input type="text" id="soat_" class="form-control datetimepicker-input" data-target="#soat" disabled/>
+                    <div class="input-group-append" data-target="#soat" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TECNO -->
+            <div class="form-group">
+              <label>Fecha TECNO:</label>
+                <div class="input-group date" id="tecno" data-target-input="nearest">
+                    <input type="text" id="tecno_" class="form-control datetimepicker-input" data-target="#tecno" disabled/>
+                    <div class="input-group-append" data-target="#tecno" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
+          <div class="col-12 float-right">
+            <button type="button" id="actualizar" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+        </div>
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+          <!-- <button type="button" class="btn btn-primary">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+var obtenerMarcavehiculo = function(id){
+    url_marca= 'marcavehiculos/'+id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_marca,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var htmlMarca = '';
+            htmlMarca += '<option value="'+ respuesta.data.id+'">';
+            htmlMarca += respuesta.data.descripcion;
+            htmlMarca += '</option>';
+            $('#select-marcavehiculo').html(htmlMarca);
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+var obtenerTipovehiculo = function(id){
+    url_tipo= 'tipovehiculos/'+id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_tipo,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var htmlTipo = '';
+            htmlTipo += '<option value="'+ respuesta.data.id+'">';
+            htmlTipo += respuesta.data.descripcion;
+            htmlTipo += '</option>';
+            $('#select-tipovehiculo').html(htmlTipo);
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+function obtenerVehiculo(id){
+
+var url = 'vehiculos/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#placa').val(respuesta.data.placa);
+        $('#cilindraje').val(respuesta.data.cilindraje);
+        $('#modelo').val(respuesta.data.modelo);
+        $('#color').val(respuesta.data.color);
+        $('#num_motor').val(respuesta.data.num_motor);
+        $('#num_chasis').val(respuesta.data.num_chasis);
+        $('#linea').val(respuesta.data.linea);
+        $('#soat_').val(respuesta.data.soat); //TODO: validar se vence cada año
+        $('#tecno_').val(respuesta.data.tecno);
+
+        if(respuesta.data.marcavehiculo_id){
+            obtenerMarcavehiculo(respuesta.data.marcavehiculo_id);
+        }
+
+        if(respuesta.data.tipovehiculo_id){
+            obtenerTipovehiculo(respuesta.data.tipovehiculo_id);
+        }
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerVehiculo(localStorage.ver);
+      localStorage.ver = '';
+});
+
+</script>

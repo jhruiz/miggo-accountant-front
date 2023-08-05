@@ -1,0 +1,148 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Cuenta Bancaria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+        
+        
+        <form id="form"  method="PUT" action="" enctype="multipart/form-data">
+
+
+            <div class="form-group">
+                <label>Entidad Financiera <code> &nbsp;*</code></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div> 
+                    <input type="text" id="entidadfinanciera" class="form-control input-texto-alfanumerico" placeholder="Entidad Financiera " required>  
+                </div> 
+            </div> 
+
+            <div class="form-group">
+                <label>Numero de Oficina <code> &nbsp;*</code></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div> 
+                    <input type="text" id="oficinanumero" class="form-control input-texto-alfanumerico" placeholder="Numero de Oficina" required>
+                </div> 
+            </div> 
+
+            <div class="form-group">
+                <label>Titular Cuenta <code> &nbsp;*</code></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div> 
+                    <input type="text" id="titularcuenta" class="form-control input-texto-alfanumerico" placeholder="Titular Cuenta" required>  
+                </div> 
+            </div> 
+
+            <div class="form-group">
+                <label>Numero Cuenta <code> &nbsp;*</code></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div> 
+                    <input type="text" id="numerocuenta" class="form-control input-numero" placeholder="Numero Cuenta" required>  
+                </div> 
+            </div> 
+
+            <div class="form-group">
+                <label for="exampleSelectRounded0">Tipo Cuentas <code> &nbsp;*</code></label>
+                <select class="custom-select rounded-0" id="select-tipocuentas" required>
+                    <!-- <option>Value 1</option> -->
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleSelectRounded0">Clasificacion de la cuenta <code> &nbsp;*</code></label>
+                <select class="custom-select rounded-0" id="select-cuentapropiaempresa" required>
+                    <option value="" selected="true" disabled="disabled">Seleccione...</option>
+                    <option value="0">Terceros</option>
+                    <option value="1">Cuenta de la Empresa</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="divF" style="display: none;">
+                <label for="exampleSelectRounded0">Franquicia <code> &nbsp;*</code></label>
+                <select class="custom-select rounded-0" id="select-mastercardyvisa">
+                    <!-- <option>Value 1</option> -->
+
+                </select>
+            </div> 
+
+            <div class="form-group" id="divA" style="display: none;">
+                <label>Fecha de Apertura:</label>
+                    <div class="input-group date" id="apertura" data-target-input="nearest">
+                        <div class="input-group-prepend" data-target="#apertura" data-toggle="datetimepicker">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                        <input type="text" id="aperturas" class="form-control datetimepicker-input" data-target="#apertura"/>
+                    </div>
+                </div>
+    
+                <div class="form-group" id="divFv" style="display: none;">
+                <label>Fecha de Vencimiento:</label>
+                    <div class="input-group date" id="vencimiento" data-target-input="nearest">
+                        <div class="input-group-prepend" data-target="#vencimiento" data-toggle="datetimepicker">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                        <input type="text" id="vencimientos" class="form-control datetimepicker-input" data-target="#vencimiento"/>
+                    </div>
+                </div>
+
+                <div class="form-group" id="divC" style="display: none;">
+                    <label>Cupo </label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        </div> 
+                        <input type="text" id="cupo" class="form-control input-numero" placeholder="Cupo">  
+                        <div class="input-group-append">
+                            <span class="input-group-text">$</span>
+                        </div>
+                    </div> 
+                </div> 
+
+            <div class="col-12 float-right">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+            </div> 
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/cuentabancarias/edit.js"></script>

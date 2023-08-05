@@ -1,0 +1,178 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong3" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Crear Puc</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Número PUC</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" id="principal" disabled> <input type="text" id="numeropuc" class="form-control input-numero"> 
+                </div>
+            </div>
+
+            <div class="form-group">
+            <label>Nombre</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <textarea id="descripcion" class="form-control" rows="2" placeholder="Descripcion ..."></textarea>
+            </div> 
+            </div> 
+
+            <div class="form-group">
+                <label>Naturaleza</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" id="naturaleza" class="form-control input-texto-espacio" placeholder="Naturaleza"> 
+                </div>
+            </div>
+
+            <div class="col-12 float-right">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>&nbsp; 
+            </div>
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <script>
+
+
+$("#form").submit(function(e) {
+e.preventDefault();   
+
+const form = document.getElementById('form');
+const formData = new FormData(form);
+
+var url = 'pucs';
+var puc_id = localStorage.crear;
+
+var descripcion = $('#descripcion').val();
+var naturaleza = $('#naturaleza').val();
+var codigo = $('#principal').val() + $('#numeropuc').val();
+
+formData.append("codigo", codigo);
+formData.append("puc_id", puc_id);
+formData.append("empresa_id", localStorage.empresa_id);
+formData.append("creador_id", localStorage.id);
+formData.append("descripcion", descripcion);
+formData.append("naturaleza", naturaleza);
+
+$.ajax({
+    method: "POST",
+    url: url_back + url,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    data: formData,
+    contentType: false,//formData
+    processData: false,//formData
+    success: function(respuesta) {
+
+        localStorage.crear = '';
+        if(respuesta){
+            // $('#ModalLong').modal('hide');
+            // $('ModalLong').removeClass('show')
+            $('.modal-backdrop').remove();
+
+            var mensaje = 'se creo de forma correcta '+ respuesta.data.descripcion;
+            sweetMessage('success', mensaje); 
+            $('#main_content').load(url_front + 'pucs/index.html');
+        } else {
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    },
+    error: function(respuesta) {
+
+        if(respuesta.responseJSON.error){
+            $.each(respuesta.responseJSON.error.message, function (key, item) {
+                var mensaje = item[0];
+                sweetMessage('error', mensaje);
+            });
+
+        }else{
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+ 
+
+    }
+});
+});
+
+
+
+function obtenerPucs(id){
+
+var url = 'pucs/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+        $('#principal').val(respuesta.data.codigo);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+$(document).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerPucs(localStorage.crear);
+
+    $('#descripcion').validCampo('abcdefghijklmnopqrstuvwxyziou# 0123456789._-');
+});
+
+
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>

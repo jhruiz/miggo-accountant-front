@@ -1,0 +1,72 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar decimales </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+    <div class="card-body">
+        
+        
+        <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+  
+
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Decimal Moneda  <code> &nbsp;*</code></label>
+                        <select class="custom-select rounded-0" id="select-decimalmoneda" required>
+                        <option value="0" selected="true" disabled="disabled">Selecione un Nivel</option>
+                        <option value="1">1 Decimal</option>
+                        <option value="2">2 Decimal</option>
+                        <option value="3">3 Decimal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Decimal Peso  <code> &nbsp;*</code></label>
+                        <select class="custom-select rounded-0" id="select-decimalpeso" required>
+                          <option value="0" selected="true" disabled="disabled">Selecione un Nivel</option>
+                          <option value="1">1 Decimal</option>
+                          <option value="2">2 Decimal</option>
+                          <option value="3">3 Decimal</option>
+                        </select>
+                      </div>
+
+  
+                  <div class="col-12 float-right">
+                      <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>&nbsp; 
+                      <button type="submit" id="form" class="btn btn-primary">Actualizar</button>
+                  </div>
+  
+        </form>
+  
+    </div>
+  
+  </div>
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/miempresa/decimale/edit.js"></script>
+
+

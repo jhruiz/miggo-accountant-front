@@ -1,0 +1,143 @@
+<div class="card card-main-content">
+
+  <div class="card-header">
+      <h2 class="card-title"><b>
+      </b></h2>
+  </div>
+
+
+<div class="card-body-datatable">
+
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 id="saludos"></h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">
+               <button class="btn btn-success btn-sm" type="submit" onclick="verNiif()" data-toggle="modal" data-target="#ModalLong">
+                <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+              </button>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Gestion de NIIF</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>1) Clases:</label>
+                      <select multiple class="form-control" id="select-clases">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>2) Grupos:</label>
+                      <select multiple class="form-control" id="select-grupos">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>3) Cuentas:</label>
+                      <select multiple class="form-control" id="select-cuentas">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>4) Sub-Cuentas:</label>
+                      <select multiple class="form-control" id="select-subcuentas">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>5) Auxiliares:</label>
+                      <select multiple class="form-control" id="select-auxiliares">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          </div>
+          <input type="text" id="id" class="form-control" hidden>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        </div>
+        <input type="text" id="posicion" class="form-control" hidden>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Lista de NIIF</h3>
+          </div>
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+            
+
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+
+<div id="mymodal"></div>
+
+  <div class="card-footer"></div>
+
+</div>
+
+<script src="../../build/js/niifs/index.js"></script>

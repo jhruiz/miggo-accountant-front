@@ -1,0 +1,731 @@
+<!-- Preloader -->
+<div class="preloader flex-column justify-content-center align-items-center">
+<img class="animation__shake" src="../../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-12">
+                <h4>
+                    <i class="nav-icon fas fa-user"></i>
+                    Editar Tercero                               
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body-tercero">
+        <form id="formTercero"  method="PUT" action="" enctype="multipart/form-data">
+
+        <div class="container-fluid">
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">Datos Generales</h3>
+    
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                        <div id="mostrarImagen" stye="display:flex;"></div>
+                        <div class="form-group">
+                        <div class="custom-file">
+                          <input class="btn btn-success col fileinput" type="file" id="imagen"></div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Nombre <code>&nbsp;*</code></label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                          </div>
+                          <input type="text" id="nombres" class="form-control input-texto-espacio" placeholder="Nombres" required>  
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label>Apellidos</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                          </div>
+                          <input type="text" id="apellidos" class="form-control input-texto-espacio" placeholder="Apellidos">
+                      </div>
+
+                    </div>
+
+                  <div class="form-group">
+                      <div class="form-group">
+                          <label for="exampleSelectBorder">Tipo Identificacion <code>&nbsp;*</code></label>
+                          <select class="custom-select form-control-border" id="select-identificacion" required>
+                          <!-- <option>Value 1</option> -->
+          
+                          </select>
+                      </div>
+                      </div>
+
+
+                  <div class="form-group">
+                    <label>Numero de Identificacion </label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        </div>
+                        <input type="text" id="identificacion" class="form-control input-texto-alfanumerico" placeholder="Identificacion"> <div id="divDigito" style="display: none;"> <input type="text" id="verificado" class="form-control input-numero" placeholder="Digito Verificacion" disabled> </div>
+                    </div> 
+                </div>
+
+
+                  <div class="form-group">
+                      <label>Celular <code>&nbsp;*</code></label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                          <input type="text" id="celular" class="form-control input-numero" placeholder="Celular" required>
+                      </div> 
+
+                      </div>
+
+                  </div>
+                  <div class="col-md-6">
+
+
+                    <div class="form-group">
+
+                          <label for="exampleSelectRounded0">Departamento</label>
+                          <select class="custom-select rounded-0" id="select-departamento">
+                            <!-- <option>Value 1</option> -->
+          
+                          </select>
+                    </div>
+
+                  <div class="form-group">
+                          <label for="exampleSelectRounded0">Ciudad</label>
+                          <select class="custom-select rounded-0" id="select-ciudad">
+                            <!-- <option>Value 1</option> -->
+          
+                          </select>
+                  </div>
+
+
+                  <div class="form-group">
+
+                      <div class="form-group">
+                          <label for="exampleSelectBorder">Tipo Direccion</label>
+                          <select class="custom-select form-control-border" id="select-tipodirecciones" >
+                          <!-- <option>Value 1</option> -->
+
+                          </select>
+                      </div>
+
+                      </div>
+
+
+                    <div class="form-group">
+                      <label>Direccion</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                          </div>
+                          <textarea id="direccion" class="form-control" rows="3" placeholder="Dirección ..."></textarea>
+                      </div> 
+
+                    </div>
+
+                  <div class="form-group">
+                      <div class="form-group">
+                          <label for="exampleSelectBorder">Tipo Direccion 2</label>
+                          <select class="custom-select form-control-border" id="select-tipodirecciones2" >
+                          <!-- <option>Value 1</option> -->
+
+                          </select>
+                      </div>
+                      </div>
+
+
+                    <div class="form-group">
+                      <label>Direccion 2</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                          </div>
+                          <textarea id="direccion2" class="form-control" rows="3" placeholder="Dirección ..."></textarea>
+                      </div> 
+
+                    </div>
+
+                  <div class="form-group">
+                    <label>Teléfono</label>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                        <input type="text" id="telefono" class="form-control input-numero" placeholder="Teléfono">
+                    </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+    
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                      <label>Email</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                          </div>
+                          <input type="text" id="email" class="form-control" placeholder="Email" >  
+                      </div> 
+
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+
+
+                  <div class="form-group">
+                    <label>Fecha de Nacimiento:</label>
+                        <div class="input-group date" id="cumpleanio" data-target-input="nearest">
+                            <div class="input-group-prepend" data-target="#cumpleanio" data-toggle="datetimepicker">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                              </div>
+                          <input type="text" id="cumpleanios" class="form-control datetimepicker-input" data-target="#cumpleanio"/>
+                      </div>
+                  </div>
+
+
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">Información General Contable</h3>
+    
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+
+
+                    <div class="form-group">
+                      <label>Representante Legal</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+                          </div>
+                          <input type="text" id="representantelegal" class="form-control input-texto-espacio" placeholder="Representante Legal" >  
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                          <label for="exampleSelectRounded0">Personeria </label>
+                          <select class="custom-select rounded-0" id="select-personerias">
+                            <!-- <option>Value 1</option> -->
+          
+                          </select>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-6">
+
+                  <div class="form-group">
+                    <label>Razon Social</label>
+    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                        </div>
+                        <input type="text" id="razonsocial" class="form-control input-texto-espacio" placeholder="Razon Social">
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+
+                          <label for="ciiu">Codigo CIIU: </label>
+                          <input class="form-control input-texto-alfanumerico" id="ciiu" placeholder="El nombre o Codigo CIIU">
+                        <input class="form-control input-texto-alfanumerico" id="ciiu_id" hidden>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+    
+            <div class="row">
+              <div class="col-md-6">
+    
+                <div class="card card-danger">
+                  <div class="card-header">
+                    <h3 class="card-title">Retencion</h3>
+                  </div>
+                  <div class="card-body">
+
+                  <div class="form-group">
+                    <label for="exampleSelectRounded0">Regimen </label>
+                    <select class="custom-select rounded-0" id="select-regimenes">
+                      <!-- <option>Value 1</option> -->
+    
+                    </select>
+
+                  </div>
+
+                  <div class="form-group">
+
+                    <label for="exampleSelectRounded0">Tipo Contribuyente </label>
+                    <select class="custom-select rounded-0" id="select-tipocontribuyentes">
+                      <!-- <option>Value 1</option> -->
+    
+                    </select>
+
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                              <input type="checkbox" id="autoretenedorrenta">
+                              <label for="autoretenedorrenta">
+                                Autoretenedor
+                              </label>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+
+                        <div class="form-group clearfix">
+                            <div class="icheck-success d-inline">
+                              <input type="checkbox" id="autoretenedorica">
+                              <label for="autoretenedorica">
+                                ICA
+                              </label>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+
+
+                  </div>
+                </div>
+                
+    
+    
+              </div>
+              <div class="col-md-6">
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Información de Contacto</h3>
+                  </div>
+                  <div class="card-body">
+
+                      <div class="form-group">
+
+                      <label for="exampleSelectRounded0">Tipo de Contacto </label>
+                      <select class="custom-select rounded-0" id="select-contactos">
+                        <!-- <option>Value 1</option> -->
+      
+                      </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                      <label>Nombre Contacto</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                          </div>
+                          <input type="text" id="contactonombre" class="form-control input-texto-espacio" placeholder="Nombres" >  
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <label>Celular Contacto</label>
+
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                          <input type="text" id="contactocelular" class="form-control input-numero" placeholder="Celular">
+                      </div> 
+
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+            <div class="col-md-12">
+                <div class="card card-success">
+                    <div class="card-header">
+                      <h3 class="card-title">Información Detallada</h3>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                              <input type="checkbox" id="cliente">
+                              <label for="cliente">
+                                  Cliente
+                              </label>
+                            </div>
+
+
+                            <div class="table table-striped files" id="divC" style="display: none;">
+
+                              <div class="col-auto d-flex align-items-center">
+                                <div class="btn-group">
+
+                                  
+                                      &nbsp;
+                                      
+                                  <button class="btn btn-success btn-sm" id="clientebtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                    <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                  <input type="text" id="cliente_id" class="form-control input-numero" hidden>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+
+
+                                    <button data-dz-remove class="btn btn-info btn-sm" id="clientebtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                    <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+                                  <button data-dz-remove id="clientebtndelete" class="btn btn-danger delete">
+                                    <i class="fas fa-trash" aria-hidden="true"></i>
+                                    <span></span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+
+                          <div class="form-group clearfix">
+                            <div class="icheck-success d-inline">
+                              <input type="checkbox" id="proveedore">
+                              <label for="proveedore">
+                                Proveedor
+                              </label>
+                            </div>
+
+
+                            <div class="table table-striped files" id="divP" style="display: none;">
+
+                              <div class="col-auto d-flex align-items-center">
+                                <div class="btn-group">
+
+                                  
+                                      &nbsp;
+                                      
+                                  <button class="btn btn-success btn-sm" id="proveedorebtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                    <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                  <input type="text" id="proveedore_id" class="form-control input-numero" hidden>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+
+                                  <button data-dz-remove class="btn btn-info btn-sm" id="proveedorebtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                    <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+                                  <button data-dz-remove class="btn btn-danger delete" id="proveedorebtndelete">
+                                    <i class="fas fa-trash"></i>
+                                    <span></span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group clearfix">
+                            <div class="icheck-danger d-inline">
+                              <input type="checkbox" id="empleado">
+                              <label for="empleado">
+                                Empleado
+                              </label>
+                            </div>
+
+
+                            <div class="table table-striped files" id="divE" style="display: none;">
+
+                              <div class="col-auto d-flex align-items-center">
+                                <div class="btn-group">
+
+                                  
+                                      &nbsp;
+                                      
+                                  <button class="btn btn-success btn-sm" id="empleadobtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                    <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                  <input type="text" id="empleado_id" class="form-control input-numero" hidden>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+
+                                  <button data-dz-remove class="btn btn-info btn-sm" id="empleadobtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                    <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+                                  <button data-dz-remove class="btn btn-danger delete" id="empleadobtndelete">
+                                    <i class="fas fa-trash"></i>
+                                    <span></span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="icheck-danger d-inline">
+                                <input type="checkbox" id="entnomina">
+                                <label for="entnomina">
+                                  Entidad de Nomina
+                                </label>
+                              </div>
+
+
+                            <div class="table table-striped files" id="divN" style="display: none;">
+
+                              <div class="col-auto d-flex align-items-center">
+                                <div class="btn-group">
+
+                                  
+                                      &nbsp;
+                                      
+                                  <button class="btn btn-success btn-sm" id="entnominabtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                    <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                  <input type="text" id="entnomina_id" class="form-control input-numero" hidden>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+
+                                  <button data-dz-remove class="btn btn-info btn-sm" id="entnominabtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                    <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                    <span></span>
+                                  </button>
+                                  &nbsp;
+      
+                                  <button data-dz-remove class="btn btn-danger delete" id="entnominabtndelete">
+                                    <i class="fas fa-trash"></i>
+                                    <span></span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group clearfix">
+                            <div class="icheck-success d-inline">
+                              <input type="checkbox" id="mastercardyvisa">
+                              <label for="mastercardyvisa">
+                                Master Card y Visa
+                              </label>
+                            </div>
+
+
+
+                                <div class="table table-striped files" id="divM" style="display: none;">
+
+                                  <div class="col-auto d-flex align-items-center">
+                                    <div class="btn-group">
+
+                                    
+                                          &nbsp;
+                                          
+                                      <button class="btn btn-success btn-sm" id="mastercardyvisabtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                        <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                      <input type="text" id="mastercardyvisa_id" class="form-control input-numero" hidden>
+                                        <span></span>
+                                      </button>
+                                      &nbsp;
+
+
+                                      <button data-dz-remove class="btn btn-info btn-sm" id="mastercardyvisabtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                        <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                        <span></span>
+                                      </button>
+                                      &nbsp;
+
+                                      <button data-dz-remove class="btn btn-danger delete" id="mastercardyvisabtndelete">
+                                        <i class="fas fa-trash"></i>
+                                        <span></span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                          </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group clearfix">
+                                <div class="icheck-success d-inline">
+                                    <input type="checkbox" id="otrostercero">
+                                    <label for="otrostercero">
+                                    Otros Terceros
+                                    </label>
+                                </div>
+                                
+
+                                  <div class="table table-striped files" id="divO" style="display: none;">
+
+                                    <div class="col-auto d-flex align-items-center">
+                                      <div class="btn-group">
+
+                                            &nbsp;
+                                            
+                                        <button class="btn btn-success btn-sm" id="otrostercerobtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                          <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                        <input type="text" id="otrostercero_id" class="form-control input-numero" hidden>
+                                          <span></span>
+                                        </button>
+                                        &nbsp;
+
+                                        <button data-dz-remove class="btn btn-info btn-sm" id="otrostercerobtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                          <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                          <span></span>
+                                        </button>
+                                        &nbsp;
+
+                                        <button data-dz-remove class="btn btn-danger delete" id="otrostercerobtndelete">
+                                          <i class="fas fa-trash"></i>
+                                          <span></span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                                </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row">
+
+
+
+                          <div class="col-sm-6">
+                            <div class="form-group clearfix" id="divEmpresa" style="display: none;">
+                              <div class="icheck-success d-inline">
+                                <input type="checkbox" id="socio">
+                                <label for="socio">
+                                  socio
+                                </label>
+                              </div>
+  
+  
+                                  <div class="table table-striped files" id="divS" style="display: none;">
+  
+                                    <div class="col-auto d-flex align-items-center">
+                                      <div class="btn-group">
+  
+                                            &nbsp;
+                                            
+                                        <button class="btn btn-success btn-sm" id="sociobtnver" data-toggle="modal" data-target="#exampleModalLong">
+                                          <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+                                        <input type="text" id="socio_id" class="form-control input-numero" hidden>
+                                          <span></span>
+                                        </button>
+                                        &nbsp;
+  
+  
+                                        <button data-dz-remove class="btn btn-info btn-sm" id="sociobtnedit" data-toggle="modal" data-target="#ModalLong2">
+                                          <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+                                          <span></span>
+                                        </button>
+                                        &nbsp;
+  
+                                        <button data-dz-remove class="btn btn-danger delete" id="sociobtndelete">
+                                          <i class="fas fa-trash"></i>
+                                          <span></span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+  
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card-footer"></div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+
+      </form>
+  </div>
+</div>
+
+<div id="mymodal"></div>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/terceros/edit.js"></script>

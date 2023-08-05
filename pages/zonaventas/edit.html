@@ -1,0 +1,170 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Zona de venta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Codigo</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+               <input type="text" id="codigo" class="form-control input-numero" required> 
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <textarea id="descripcion" class="form-control" rows="2" placeholder="Descripcion ..." required></textarea>
+            </div> 
+        </div> 
+
+        <div class="col-12 float-right">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+        </div> 
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <script>
+
+
+$("#form").submit(function(e) {
+e.preventDefault();   
+
+const form = document.getElementById('form');
+const formData = new FormData(form);
+
+var descripcion = $('#descripcion').val();
+var codigo = $('#codigo').val();
+
+formData.append("codigo", codigo);
+formData.append("descripcion", descripcion);
+formData.append('_method', 'PUT');
+
+$.ajax({
+    method: "POST",
+    url: url_back + "zonaventas/"+localStorage.editar,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    data: formData,
+    contentType: false,//formData
+    processData: false,//formData
+    success: function(respuesta) {
+
+        localStorage.editar = '';
+        if(respuesta){
+            // $('#ModalLong').modal('hide');
+            // $('ModalLong').removeClass('show')
+            $('.modal-backdrop').remove();
+
+            var mensaje = 'se actualizado de forma correcta.: '+ respuesta.data.descripcion;
+            sweetMessage('success', mensaje); 
+            $('#main_content').load(url_front + 'zonaventas/index.html');
+        } else {
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    },
+    error: function(respuesta) {
+
+        if(respuesta.responseJSON.error){
+            $.each(respuesta.responseJSON.error.message, function (key, item) {
+                var mensaje = item[0];
+                sweetMessage('error', mensaje);
+            });
+
+        }else{
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+ 
+
+    }
+});
+});
+
+
+
+function obtenerZonaventa(id){
+
+var url = 'zonaventas/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+        $('#codigo').val(respuesta.data.codigo);
+        $('#descripcion').val(respuesta.data.descripcion);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+
+//******************************************************* trae todas las cuentas Zonaventa ********************************************************
+
+
+$(document).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerZonaventa(localStorage.editar);
+
+    $('#descripcion').validCampo('abcdefghijklmnopqrstuvwxyziou# 0123456789._-');
+});
+
+
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>

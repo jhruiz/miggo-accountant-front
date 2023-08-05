@@ -1,0 +1,298 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Proveedor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+            </div>
+            <input type="text" id="paginaweb" class="form-control" placeholder="Pagina Web">
+        </div>
+
+  
+          <div class="form-group">
+            <label>Dias de Credito</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+             <input type="text" id="diascredito" class="form-control" placeholder="diascredito">
+
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label>Limite Credito</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+             <input type="text" id="limitecredito" class="form-control" placeholder="limitecredito">
+
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label>Observaciones</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <textarea id="observaciones" class="form-control" rows="3" placeholder="Observaciones..."></textarea>
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+  
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Termino Pago <code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-terminopagos">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+
+            <!-- /.form-group -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                              <input type="checkbox" id="estatus">
+                              <label for="estatus">
+                                Excluir proveedor
+                              </label>
+                            </div>
+                          </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+
+          <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button> 
+            <button type="submit" id="form" class="btn btn-primary float-right">Actualizar</button>
+          </div>
+
+
+
+      </form>
+
+  </div>
+
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+          <!-- <button type="button" class="btn btn-primary">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+
+$("#form").submit(function(e) {
+e.preventDefault();   
+
+const form = document.getElementById('form');
+const formData = new FormData(form);
+
+var paginaweb = $('#paginaweb').val();
+var observaciones = $('#observaciones').val();
+var diascredito = $('#diascredito').val();
+var limitecredito = $('#limitecredito').val();
+
+var estatus =$('#estatus').is(':checked') ? 0 : 1;
+
+var terminopago_id = $('#select-terminopagos').val()? $('#select-terminopagos').val() : ''; 
+
+formData.append("paginaweb", paginaweb);
+formData.append("diascredito", diascredito);
+formData.append("limitecredito", limitecredito);
+formData.append("observaciones", observaciones);
+formData.append("estatus", estatus);
+formData.append("terminopago_id", terminopago_id);
+formData.append('_method', 'PUT');
+
+$.ajax({
+    method: "POST",
+    url: url_back + "proveedores/"+localStorage.editartercero,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    data: formData,
+    contentType: false,//formData
+    processData: false,//formData
+    success: function(respuesta) {
+
+        localStorage.editartercero = '';
+        if(respuesta){
+            $('#ModalLong2').modal('hide');
+            $('#ModalLong2').removeClass('show')
+            $('.modal-backdrop').remove();
+
+            var mensaje = 'se actualizado de forma correcta ';
+            sweetMessage('success', mensaje); 
+            // $('#main_content').load(url_front + 'terceros/edit.html'); //TODO: No Recargar arriba elimino el modal de forma manual
+        } else {
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    },
+    error: function(respuesta) {
+
+        if(respuesta.responseJSON.error){
+            $.each(respuesta.responseJSON.error.message, function (key, item) {
+                var mensaje = item[0];
+                sweetMessage('error', mensaje);
+            });
+
+        }else{
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    }
+});
+});
+
+//**************************************************************SELECT CONSTRUCION*****************************************************************
+
+var obtenerSelect = function(url, select, id){
+    url_tipo= url+ '/' +id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_tipo,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var html = '';
+            html += '<option value="'+ respuesta.data.id+'">';
+            html += respuesta.data.descripcion;
+            html += '</option>';
+            obtenerSelects(url, select, id, html);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+function obtenerSelects(url, select, id = null,  base = null) {
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $(select).html(crearHtml(respuesta.data, base, id));
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })     
+}
+
+$('#estatus').change(function(){    
+    if($('input[id=estatus]').is(':checked')){
+        $("#divestatus").show();
+    }else{
+        $("#divestatus").hide();
+    }
+});
+//*********************************************************************************************************************************
+
+
+function obtenerproveedore(id){
+
+var url = 'proveedores/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#paginaweb').val(respuesta.data.paginaweb);
+        $('#diascredito').val(respuesta.data.diascredito);
+        $('#limitecredito').val(respuesta.data.limitecredito);
+        $('#observaciones').val(respuesta.data.observaciones);
+
+        respuesta.data.estatus == 1 ? $('#estatus').prop( "checked", false ) : $('#estatus').prop( "checked", true );
+
+        if(respuesta.data.terminopago_id){
+            obtenerSelect('terminopagos', '#select-terminopagos', respuesta.data.terminopago_id);
+        }else{
+            obtenerSelects('terminopagos', '#select-terminopagos');
+        }
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerproveedore(localStorage.editartercero);
+
+});
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>

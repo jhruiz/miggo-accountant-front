@@ -1,0 +1,80 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Tasa de Cambio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+        
+        
+        <form id="form"  method="PUT" action="" enctype="multipart/form-data">
+
+
+            <div class="form-group">
+                <label>Moneda <code> &nbsp;*</code></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div> 
+                    <input type="text" id="moneda" class="form-control input-texto-alfanumerico" placeholder="Moneda" value="USD" required>  <code>&nbsp;*</code>
+                </div> 
+            </div> 
+
+            <div class="form-group">
+                <label>Tasa <code> &nbsp;*</code></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div> 
+                    <input type="text" id="tasa" class="form-control input-numero" placeholder="tasa" required>  <code>&nbsp;*</code>
+                </div> 
+            </div> 
+
+            <div class="form-group">
+                <label>Fecha: <code> &nbsp;*</code></label>
+                    <div class="input-group date" id="fecha" data-target-input="nearest">
+                        <div class="input-group-prepend" data-target="#fecha" data-toggle="datetimepicker">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                          </div>
+                      <input type="text" id="fechas" class="form-control datetimepicker-input" data-target="#fecha" required/>
+                  </div>
+              </div>
+
+            <div class="col-12 float-right">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+            </div> 
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/tasacambios/edit.js"></script>

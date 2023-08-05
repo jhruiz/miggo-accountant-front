@@ -1,0 +1,325 @@
+<!-- Preloader -->
+<div class="preloader flex-column justify-content-center align-items-center">
+<img class="animation__shake" src="../../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+</div>
+
+<div class="card">
+
+    <form id="form"  method="PUT" action="" enctype="multipart/form-data">
+    
+    <div class="card card-default">
+    
+        <div class="card-header">
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+    
+            <h4 class="title">
+                <i class="nav-icon fas fa-user"></i>
+                Editar Activo Fijo  </h4>
+          </div>
+    
+        <div class="card-body">
+            
+            
+    
+              <div class="row">
+                    <div class="col-sm-6">
+    
+                        <div id="mostrarImagen" stye="display:flex;"></div>
+                        <div class="form-group">
+                        <div class="custom-file">
+                        <input class="btn btn-success col fileinput" type="file" id="imagen"></div>
+                        </div>
+    
+                        <div class="form-group">
+                            <input type="checkbox"  id="alquilable">
+                            <label for="alquilable">Alquilable</label>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="responsable">Responsable: (Empleado Registrado)</label>
+                            <input class="form-control input-texto-alfanumerico" id="responsable" placeholder="El nombre o identificacion Empleado">
+                        </div>
+                        <input type="text" id='tercero_id' hidden>
+    
+    
+                        <div class="form-group">
+                            <label for="responsable">Cuenta Puc <code> &nbsp;*</code></label>
+                            <input class="form-control input-texto-alfanumerico" id="puc" placeholder="Nombre de la cuenta PUC" required>
+                        </div>
+                            <input class="form-control input-texto-alfanumerico" id="puc_id" hidden>
+    
+    
+                        <div class="form-group">
+                            <label>Depreciar Meses</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                            <input type="text" id="depreciarmeses" class="form-control input-numero" placeholder="Depreciar Meses">  
+                            </div> 
+                        </div> 
+            
+                        <div class="form-group">
+                            <label>Depreciar Años</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                            <input type="text" id="depreciaranio" class="form-control input-numero" placeholder="Depreciar Años">  
+                            </div> 
+                        </div> 
+    
+                        <div class="form-group">
+                            <label>Depreciar Meses Compra</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                                <input type="text" id="depreciarmesescompra" class="form-control input-numero" placeholder="Depreciar Meses Compra">  
+                            </div> 
+                        </div> 
+            
+                        <div class="form-group">
+                            <label>Depreciar Años Compra</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                             <input type="text" id="depreciaraniocompra" class="form-control input-numero" placeholder="Depreciar Años Compra">  
+                            </div> 
+                        </div> 
+    
+                        <div class="form-group">
+                            <label>Costo Hora</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                                <input type="text" id="costohora" class="form-control input-numero-decimal2" placeholder="Costo Hora">  
+                                <div class="input-group-append">
+                                    <span class="input-group-text monedaSimbolo"> </span>
+                                  </div>
+                            </div> 
+                        </div> 
+    
+                    </div>
+    
+    
+                    <div class="col-sm-6">
+    
+                        <div class="form-group">
+                            <label>Codigo <code> &nbsp;*</code></label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                                <input type="text" id="codigo" class="form-control input-texto-alfanumerico" placeholder="Codigo" required>  <code>&nbsp;*</code>
+                            </div> 
+                        </div> 
+                      
+                        <div class="form-group">
+                            <label>Nombre <code> &nbsp;*</code></label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                                <input type="text" id="nombre" class="form-control input-texto-alfanumerico" placeholder="Nombre" required>  <code>&nbsp;*</code>
+                            </div> 
+                        </div> 
+    
+                        <div class="form-group">
+                            <label for="exampleSelectRounded0">Grupo Activo Fijo <code> &nbsp;*</code></label>
+                            <select class="custom-select rounded-0" id="select-gruposactivosfijo" required>
+                              <!-- <option selected="true" disabled="disabled">Selecione un Nivel</option> -->
+            
+                            </select>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="exampleSelectRounded0">Estado Activo <code> &nbsp;*</code></label>
+                            <select class="custom-select rounded-0" id="select-estadoactivos" required>
+                              <!-- <option selected="true" disabled="disabled">Selecione un Nivel</option> -->
+            
+                            </select>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="exampleSelectRounded0">Departamento <code> &nbsp;*</code></label>
+                            <select class="custom-select rounded-0" id="select-departamento">
+                              <!-- <option selected="true" disabled="disabled">Selecione un Nivel</option> -->
+            
+                            </select>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="exampleSelectRounded0">Ciudad <code> &nbsp;*</code></label>
+                            <select class="custom-select rounded-0" id="select-ciudad">
+                              <!-- <option selected="true" disabled="disabled">Selecione un Nivel</option> -->
+            
+                            </select>
+                        </div>
+            
+                        <div class="form-group">
+                            <label>Fecha de Adquisicion:</label>
+                                <div class="input-group date" id="adquisicionfecha" data-target-input="nearest">
+                                    <div class="input-group-prepend" data-target="#adquisicionfecha" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                      </div>
+                                  <input type="text" id="adquisicionfechas" class="form-control datetimepicker-input" data-target="#adquisicionfecha"/>
+                              </div>
+                          </div>
+    
+                        <div class="form-group">
+                            <label for="exampleSelectRounded0">Nivel del Centro de Costos </label>
+                            <select class="custom-select rounded-0" id="select-nivelcentrocostos">
+                              <!-- <option selected="true" disabled="disabled">Selecione un Nivel</option> -->
+            
+                            </select>
+                        </div>
+    
+                        <div class="form-group">
+                            <label>Salvamento</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                               <input type="text" id="salvamento" class="form-control input-numero" placeholder="Salvamento">  
+                            </div> 
+                        </div> 
+            
+                        <div class="form-group">
+                            <label>Residuo</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                               <input type="text" id="residuo" class="form-control input-numero" placeholder="Residuo">  
+                            </div> 
+                        </div>            
+    
+                    </div>
+    
+              </div>
+              <div class="row">
+                    <div class="col-sm-6">
+    
+                        <div class="form-group">
+                            <label>Observaciones</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div> 
+                                <textarea id="observaciones" class="form-control" rows="3" placeholder="Observaciones ..."></textarea>
+            
+                            </div> 
+                        </div> 
+    
+                    </div>
+                    <div class="col-sm-6">
+    
+                        <div class="form-group">
+                            <label>Dirección </label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-lg fa-building"></i></span>
+                                </div> 
+                                <textarea id="direccion" class="form-control" rows="3" placeholder="Dirección ..."></textarea>
+                            </div> 
+                        </div> 
+    
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    
+        <div class="card card-default">
+    
+            <div class="card-header">
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+        
+                <h4 class="title">
+                    <i class="nav-icon far fa-file-alt"></i>
+                    Configuracion NIIF Activo Fijo  </h4>
+            </div>
+    
+            <div class="card-body">
+    
+            <div class="row">
+                <div class="col-sm-6">
+    
+                    <div class="form-group">
+                        <label for="responsable">Cuenta NIIF </label>
+                        <input class="form-control input-texto-alfanumerico" id="niif" placeholder="Nombre o codigo NIIF">
+                    </div>
+                        <input class="form-control input-texto-alfanumerico" id="niif_id" hidden>
+    
+    
+                    <div class="form-group">
+                        <label>Depreciar año Compra NIIF</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div> 
+                            <input type="text" id="depreciaraniocompraniif" class="form-control input-numero" placeholder="Depreciar año Compra NIIF" >  
+                        </div> 
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Depreciar meses Compra NIIF </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div> 
+                            <input type="text" id="depreciarmesescompraniif" class="form-control input-numero" placeholder="Depreciar meses Compra NIIF" >  
+                        </div> 
+                    </div>
+    
+                </div>
+                <div class="col-sm-6">
+    
+                    <div class="form-group">
+                        <label>Salvamento NIIF </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div> 
+                            <input type="text" id="salvamentoniif" class="form-control input-texto-alfanumerico" placeholder="Salvamento NIIF" >  
+                        </div> 
+                    </div> 
+    
+                    <div class="form-group">
+                        <label>Valor Neto Razonable </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div> 
+                            <input type="text" id="vlrnrorazonable" class="form-control input-numero" placeholder="Valor Neto Razonable" >  
+                        </div> 
+                    </div> 
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+                <div class="col-12 float-right">
+                    <button type="submit" class="btn btn-primary float-right">Crear</button>
+    
+                </div> 
+    
+            </form>
+        </div>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/activosfijos/add.js"></script>
+

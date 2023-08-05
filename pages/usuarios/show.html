@@ -1,0 +1,134 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<!--  -->
+
+
+<div class="card">
+  <div class="card-header">
+      <div class="row">
+          <div class="col-12">
+              <h4>
+                  <!-- <img id="imagen" src="../usuarios/user-04.jpg" /> -->
+                  <img id="imagen" src="" />
+              </h4>
+          </div>
+      </div>
+  </div>
+
+  <div class="card-body">
+        
+        
+    <form method="PUT" action="" enctype="multipart/form-data">
+
+
+        <div id="mostrarImagen" stye="display:flex;"></div>
+        <div class="form-group">
+        <div class="custom-file">
+        <input class="btn btn-success col fileinput" type="file" id="imagen" disabled></div>
+        </div>
+
+    <div class="form-group">
+        <label>Email </label>
+        <div class="input-group mb-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            <input type="text" id="email" class="form-control" placeholder="Email" disabled>  
+        </div> 
+    </div>
+
+    <div class="form-group">
+        <label>Contraseña </label>
+        <div class="input-group mb-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            <input type="password" id="password" class="form-control" placeholder="Password" autocomplete="new-password" disabled>
+        </div> 
+    </div>
+
+  <div class="form-group">
+    <label for="exampleSelectRounded0">Perfil (Nivel)</label>
+    <select class="custom-select rounded-0" id="select-perfiles" disabled>
+
+    </select>
+  </div>
+
+    <div class="form-group">
+        <label for="tercero">Numero Identificacion-Empleado: </label>
+        <input class="form-control input-texto-alfanumerico" id="tercero" placeholder="El nombre del Empleado" disabled>
+      </div>
+
+       <input type="text" id='tercero_id' hidden>
+
+
+        <div class="form-group">
+            <label>Apellidos</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <input type="text" id="apellidos" class="form-control input-texto-espacio" placeholder="Apellidos" disabled> 
+            </div>
+        </div>
+    
+            <div class="form-group">
+                <label>Celular</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input type="text" id="celular" class="form-control input-numero" placeholder="Celular" disabled>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleSelectRounded0">Ciudad</label>
+                <select class="custom-select rounded-0" id="select-ciudad" disabled>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+            <label>Direccion</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <textarea id="direccion" class="form-control" rows="4" placeholder="Dirección ..." disabled></textarea>
+            </div> 
+            </div> 
+
+        <div class="col-12 float-right">
+            <button type="button" id="actualizar" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+        </div> 
+
+    </form>
+
+</div>
+
+</div>
+
+
+</div>
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="../../build/js/usuarios/show.js"></script>

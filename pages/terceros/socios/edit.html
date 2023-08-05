@@ -1,0 +1,373 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Socio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+
+ 
+        <div class="form-group">
+            <label>Numero de Acciones</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+              <input type="text" id="numeroacciones" class="form-control" placeholder="Numero Acciones">
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label>Porcentaje de Participación</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+             <input type="text" id="porcentajeparticipacion" class="form-control" placeholder="porcentajeparticipacion">
+
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+
+        <div class="form-group">
+
+            <label for="exampleSelectRounded0">Tipo de Socio <code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-tiposocios">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!-- /.form-group -->
+
+
+        <!-- /.form-group -->
+
+        <!-- <div class="form-group">
+
+          <label for="exampleSelectRounded0">Empresas o Sucursales de este Socio <code> &nbsp;*</code></label>
+          <select class="custom-select rounded-0" id="select-empresas">
+
+          </select>
+
+        </div> -->
+
+        <!-- /.form-group -->
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="form-group clearfix">
+                        <div class="icheck-primary d-inline">
+                          <input type="checkbox" id="estatus">
+                          <label for="estatus">
+                            Excluir Socio 
+                          </label>
+                        </div>
+                      </div>
+                </div>
+                <!-- /.input group -->
+              </div>
+
+
+          <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button> 
+            <button type="submit" id="form" class="btn btn-primary float-right">Actualizar</button>
+          </div>
+
+
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+          <!-- <button type="button" class="btn btn-primary">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+
+$("#form").submit(function(e) {
+e.preventDefault();   
+
+const form = document.getElementById('form');
+const formData = new FormData(form);
+
+var numeroacciones = $('#numeroacciones').val();
+var porcentajeparticipacion = $('#porcentajeparticipacion').val();
+
+var estatus =$('#estatus').is(':checked') ? 0 : 1;
+
+var tiposocio_id = $('#select-tiposocios').val()? $('#select-tiposocios').val() : ''; 
+// var empresa_id = $('#select-empresas').val()? $('#select-empresas').val() : ''; 
+
+formData.append("numeroacciones", numeroacciones);
+formData.append("porcentajeparticipacion", porcentajeparticipacion);
+formData.append("estatus", estatus);
+formData.append("tiposocio_id", tiposocio_id);
+formData.append('_method', 'PUT');
+
+$.ajax({
+    method: "POST",
+    url: url_back + "socios/"+localStorage.editartercero,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    data: formData,
+    contentType: false,//formData
+    processData: false,//formData
+    success: function(respuesta) {
+
+      console.log('editar Socio respuesta');
+        localStorage.editartercero = '';
+        if(respuesta){
+            $('#ModalLong2').modal('hide');
+            $('#ModalLong2').removeClass('show')
+            $('.modal-backdrop').remove();
+
+            var mensaje = 'se actualizado de forma correcta ';
+            sweetMessage('success', mensaje); 
+            // $('#main_content').load(url_front + 'terceros/edit.html'); //TODO: No Recargar arriba elimino el modal de forma manual
+        } else {
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    },
+    error: function(respuesta) {
+
+        if(respuesta.responseJSON.error){
+            $.each(respuesta.responseJSON.error.message, function (key, item) {
+                var mensaje = item[0];
+                sweetMessage('error', mensaje);
+            });
+
+        }else{
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    }
+});
+});
+
+//**************************************************************SELECT CONSTRUCION*****************************************************************
+
+var obtenerSelect = function(url, select, id){
+    url_tipo= url+ '/' +id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_tipo,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var html = '';
+            html += '<option value="'+ respuesta.data.id+'">';
+            html += respuesta.data.descripcion;
+            html += '</option>';
+            obtenerSelects(url, select, id, html);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+var obtenerSelectEmpresa = function(url, select, id){
+  url_empre= url+ '/' +id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_empre,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var html = '';
+            html += '<option value="'+ respuesta.data.id+'">';
+            html += respuesta.data.nit+' - '+respuesta.data.nombre;
+            html += '</option>';
+            obtenerSelectEmpresas(url, select, id, html);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+function obtenerSelects(url, select, id = null,  base = null) {
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $(select).html(crearHtml(respuesta.data, base, id));
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })     
+}
+
+function obtenerSelectEmpresas(url, select, id = null,  base = null) {
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+      console.log(respuesta);
+
+        $(select).html(crearHtmlEmpresa(respuesta.data, base, id));
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })     
+}
+
+
+var crearHtml = function(data, base = null, id = null) {
+    if (base) {
+            var html = base;
+            $.each(data, function (key, item) {
+                if(id != item.id){
+                    html += '<option value="'+ item.id+'">';
+                    html += item.descripcion;
+                    html += '</option>';
+                }
+            });
+        return html;
+    } else {
+            var html = '<option value="">Seleccione..</option>';
+            $.each(data, function (key, item) {
+                html += '<option value="'+ item.id+'">';
+                html += item.descripcion;
+                html += '</option>';
+            });
+        return html;
+    }
+}
+
+
+var crearHtmlEmpresa = function(data, base = null, id = null) {
+    if (base) {
+            var html = base;
+            $.each(data, function (key, item) {
+                if(id != item.id){
+                    html += '<option value="'+ item.id+'">';
+                    html += item.nit+' - '+item.nombre;
+                    html += '</option>';
+                }
+            });
+        return html;
+    } else {
+            var html = '<option value="">Seleccione..</option>';
+            $.each(data, function (key, item) {
+                html += '<option value="'+ item.id+'">';
+                html += item.nit+' - '+item.nombre;
+                html += '</option>';
+            });
+        return html;
+    }
+}
+//*********************************************************************************************************************************
+
+
+function obtenerSocio(id){
+
+var url = 'socios/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#numeroacciones').val(respuesta.data.numeroacciones);
+        $('#porcentajeparticipacion').val(respuesta.data.porcentajeparticipacion);
+
+        respuesta.data.estatus == 1 ? $('#estatus').prop( "checked", false ) : $('#estatus').prop( "checked", true );
+
+        if(respuesta.data.tiposocio_id){
+            obtenerSelect('tiposocios', '#select-tiposocios', respuesta.data.tiposocio_id);
+        }else{
+            obtenerSelects('tiposocios', '#select-tiposocios');
+        }
+
+        if(respuesta.data.empresa_id){
+          obtenerSelectEmpresa('empresas', '#select-empresas', respuesta.data.empresa_id);
+        }else{
+          obtenerSelectEmpresas('empresas', '#select-empresas');
+        }
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerSocio(localStorage.editartercero);
+
+});
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>

@@ -1,0 +1,287 @@
+<div class="card card-main-content">
+  
+    <div class="card-header">
+        <h2 class="card-title"><b>
+        </b></h2>
+    </div>
+  
+  
+  <div class="card-body-datatable">
+  
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 id="saludos"></h1>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-12">
+                
+                      <form method="POST" id="form" action="" enctype="multipart/form-data" class="form-inline">
+
+ 
+                            <div class="form-group mb-2">
+                              <br>
+                              <br>
+                              <h4 id="tipovehiculo"></h4>
+
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                              <label for="select-partevehiculo" class="sr-only">Parte Vehiculo</label>
+                              <select class="form-control" id="select-partevehiculo" required>
+                                <option selected>Parte...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+
+                          <button type="button" id="vincular" class="btn btn-primary mb-2">Vincular</button>
+              
+                      </form>
+              
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+  
+  
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" id="saludo">Lista de Partes: </h3>
+              </div>
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                
+  
+  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+  
+  <div id="mymodal">
+    
+  </div>
+  
+    <div class="card-footer">
+    </div>
+  
+  </div>
+  
+  <script>
+  
+var obtenertipovehiculo = function(){
+    url_tipo= 'tipovehiculos/' + localStorage.editar;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_tipo,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+      $('#tipovehiculo').text("Agregando las partes "+respuesta.data.descripcion +" :");
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+function obtenerpartevehiculos() {
+
+url = 'partevehiculos';
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,  
+     headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+        $('#select-partevehiculo').html(crearHtml(respuesta.data));
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })     
+}
+
+var crearHtml = function(data) {
+    var html = '<option value="">Seleccione..</option>';
+        $.each(data, function (key, item) {
+            html += '<option value="'+ item.id+'">';
+            html += item.descripcion;
+            html += '</option>';
+        });
+    return html;
+}
+
+  var organizarDatos = function( data ) {  
+      var arrTipovehiculos = [];
+      var i = 0;
+      data.forEach(element => {
+          arrTipovehiculo = [
+              element.descripcion,
+              element.extra,
+          ];
+  
+          i++;
+          arrTipovehiculo.push('<div class="col text-center">  <button class="btn btn-danger btn-sm" type="submit" onclick="eliminarTipovehiculosP('+ element.id +')"><i class="nav-icon fa fa-times" aria-hidden="true"></i></button> </div>'); 
+  
+          arrTipovehiculos.push(arrTipovehiculo);
+      });
+  
+      return arrTipovehiculos;
+  }
+  
+  
+  var generarDataTable = function( dataSet ) {
+  
+    $("#example1").DataTable({
+      data: dataSet,
+      columns: [
+              { title: "Parte de Vehiculo" },
+              { title: "Extra" },
+              { title: "Acciones" },
+              ],
+      "responsive": true, "lengthChange": true, "autoWidth": false,
+      "paging": true, "ordering": true, "info": true,
+        lengthMenu: [
+              [10, 25, 50, 100, -1],
+              [10, 25, 50, 100, 'All'],
+          ],
+          "language": {
+                  url:"../../build/config/languagedatatable.json"
+            },
+          dom: 'Bfrtip',
+          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  
+  }
+  
+  
+  
+  var infoTable = function(){
+  
+  var url = 'tipovehiculos/'+ localStorage.editar +'/partevehiculos';
+  
+      $.ajax({
+              method: "GET",
+              url: url_back + url,
+              headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+              dataType: 'json',
+              success: function(respuesta) {
+                  generarDataTable(organizarDatos(respuesta.data));
+              },
+              error: function() {
+                  var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde o la tabla esta vacia';
+                  sweetMessage('error', mensaje);
+              }
+          }) 
+  
+  }
+  
+  
+  
+  
+  function eliminarTipovehiculosP(id){
+  var url_eliminar = 'tipovehiculos/' + localStorage.editar +'/partevehiculos/'+id;
+  var url_index = 'tipovehiculoPartevehiculo/index.html';
+  var url_edit = 'tipovehiculoPartevehiculo/edit.html';
+
+  if(localStorage.nivelperfil == 2){
+  
+    if (confirm('¿Está seguro de Borrar?')){
+  
+                $.ajax({
+              method: "DELETE",
+              url: url_back + url_eliminar,
+              headers: { 
+                            Authorization: 'Bearer ' + localStorage.access_token
+                        },
+              dataType: "json",
+              success: function(respuesta) {
+
+                  var mensaje = 'se borro exitosamente la parte: ' + respuesta.data.descripcion;
+                  sweetMessage('success', mensaje);
+                  
+                  $('#main_content').load(url_front + url_edit);
+              },
+              error: function() {
+                  var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+                  sweetMessage('error', mensaje);
+              }
+            })  
+    } else{
+      return false;
+    }
+
+  }else{
+    var mensaje = 'Para eliminar debe tener el nivel necesario.';
+    sweetMessage('info', mensaje);
+  }
+
+  }
+
+  $("#vincular").on('click',function(e){
+
+    var parte = $('#select-partevehiculo').val();
+    var url = 'tipovehiculos/'+ localStorage.editar +'/partevehiculos/'+parte;
+    var url_edit = 'tipovehiculoPartevehiculo/edit.html';
+  
+  $.ajax({
+          method: "PUT",
+          url: url_back + url,
+          headers: { 
+              Authorization: 'Bearer ' + localStorage.access_token
+          },
+          dataType: 'json',
+          success: function(respuesta) {
+            var mensaje = 'se agrego exitosamente la parte: ' + respuesta.data.descripcion;
+            sweetMessage('success', mensaje);
+            $('#main_content').load(url_front + url_edit);    
+          },
+          error: function() {
+              var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde o la tabla esta vacia';
+              sweetMessage('error', mensaje);
+          }
+      })
+});
+  
+  
+  $( document ).ready(function() {
+    $('.preloader').hide("slow");
+    validarLogin();
+  
+    infoTable(); 
+    obtenerpartevehiculos();
+    obtenertipovehiculo();
+
+    var saludos = 'Hola '+ localStorage.nombres;
+    $('#saludos').text(saludos);
+
+  
+  });
+  
+  
+  </script>
+  

@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">
+          <i class="nav-icon fas fa-user"></i>
+          Ver ICA </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label>Tarifa</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div>
+              <input type="text" id="tarifa" class="form-control input-numero-decimalM" placeholder="Tarifa" disabled>  
+          </div>
+        </div>
+
+          <div class="form-group">
+              <label>Actividad</label>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                  </div>
+                  <input type="text" id="actividad" class="form-control input-texto-espacio" placeholder="Actividad" disabled>  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-12 float-right">
+              <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>&nbsp; 
+          </div>
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../build/js/miempresa/retencionicas/show.js"></script>

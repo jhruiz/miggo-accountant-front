@@ -1,0 +1,175 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">
+          <i class="nav-icon fas fa-user"></i>
+          Ver </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+<div class="card-body">
+    
+    
+    <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+
+
+    </form>
+
+</div>
+
+</div>
+</div>
+
+<!--  -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+
+function obtenerCiiu(id, urlCiiu){
+
+var url = urlCiiu +'/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+        // $('#descripcion').val(respuesta.data.descripcion);
+        switchEditar(urlCiiu, respuesta.data);
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+function switchEditar(url, data){ //TODO: required 
+
+    bottones = '';
+    bottones += '<div class="col-12 float-right">';
+    bottones += '<button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button></div>';
+        
+
+    switch (url) {
+        case 'ciiusecciones':
+            html = '';
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<input type="text" id="descripcion" class="form-control" placeholder="descripcion" disabled></div>';
+          
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<textarea id="detalles" class="form-control" rows="3" placeholder="Detalles ..." disabled></textarea>';
+
+
+            html += bottones;
+            $('#form').html(html);
+            $('#descripcion').val(data.descripcion);
+            $('#detalles').val(data.detalles);
+            break;
+
+        case 'ciiudivisiones':
+            html = '';
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<input type="text" id="codigo" class="form-control" placeholder="Codigo" disabled></div>';
+
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<textarea id="descripcion" class="form-control" rows="3" placeholder="Descripcion ..." disabled></textarea>';
+
+          
+            html += bottones;
+            $('#form').html(html);
+            $('#codigo').val(data.codigo);
+            $('#descripcion').val(data.descripcion);
+                
+            break;
+
+        case 'ciiugrupos':
+            html = '';
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<input type="text" id="codigo" class="form-control" placeholder="Codigo" disabled></div>';
+
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<textarea id="descripcion" class="form-control" rows="3" placeholder="Descripcion ..." disabled></textarea>';
+
+
+            html += bottones;
+            $('#form').html(html);
+            $('#codigo').val(data.codigo);
+            $('#descripcion').val(data.descripcion);
+            break;
+
+        case 'ciiuclases':
+            html = '';
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<input type="text" id="codigo" class="form-control" placeholder="Codigo" disabled></div>';
+
+            html += '<div class="input-group mb-3">';
+            html += '<div class="input-group-prepend">';
+            html += '<span class="input-group-text"><i class="fas fa-signature"></i></span></div>';
+            html += '<textarea id="descripcion" class="form-control" rows="3" placeholder="Descripcion ..." disabled></textarea>';
+
+
+            html += bottones;
+            $('#form').html(html);
+            $('#codigo').val(data.codigo);
+            $('#descripcion').val(data.descripcion);
+            break;
+
+        default:
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde. switch';
+            sweetMessage('error', mensaje);
+            break;
+    }
+
+}
+
+$(document).ready(function() {
+  $('.preloader').hide("slow");
+    validarLogin();
+
+    obtenerCiiu(localStorage.ver, localStorage.url);
+
+});
+
+
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>

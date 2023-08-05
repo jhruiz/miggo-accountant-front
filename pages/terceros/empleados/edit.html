@@ -1,0 +1,795 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Empleado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Salario</label>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+            </div>
+            <input type="text" id="sueldo" class="form-control" placeholder="Sueldo">
+        </div>
+        </div>
+  
+        <div class="form-group">
+            <label>Observaciones</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <textarea id="observaciones" class="form-control" rows="3" placeholder="Observaciones..."></textarea>
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+
+        <!-- inicio -->
+        <div class="form-group">
+          <label>Fecha inicio:</label>
+            <div class="input-group date" id="inicio" data-target-input="nearest">
+                <input type="text" id="inicio_" class="form-control datetimepicker-input" data-target="#inicio"/>
+                <div class="input-group-append" data-target="#inicio" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+          <!-- /.form-group -->
+
+        <!-- inicio -->
+        <div class="form-group">
+          <label>Fecha Terminacion:</label>
+            <div class="input-group date" id="fechaterminacion" data-target-input="nearest">
+                <input type="text" id="fechaterminacion_" class="form-control datetimepicker-input" data-target="#fechaterminacion"/>
+                <div class="input-group-append" data-target="#fechaterminacion" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+          <!-- /.form-group -->
+
+          
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Tipo de Contrato <code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-tipocontratos">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+        <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Periodicidad de Pago <code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-periodicidadpagos">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Cargo en la Empresa <code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-cargoempresas">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Tipo de Sueldos<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-tiposueldos">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!-- /.form-group -->
+
+          
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Metodos de Pago Nomina<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-metodopagonominas">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <div class="form-group">
+            <label for="responsable">Responsable: </label>
+            <input class="form-control input-texto-alfanumerico" id="responsable" placeholder="El nombre o identificacion Empleado">
+          </div>
+
+           <input type="text" id='responsable_id'  hidden>
+
+
+          <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">EPS<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-epss">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          
+          <!-- /.form-group -->
+
+          
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Fondo de Pensiones<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-fondopensiones">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          
+          <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Fondo de Cesantias<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-fondocesantias">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          
+          <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Caja de Compensacion Familiar<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-cajacompensaciones">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          
+          <!-- /.form-group -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Entidad ARL<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-arls">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!--  -->
+
+          <div class="form-group">
+
+            <label for="exampleSelectRounded0">Nivel ARL<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-nivelarls">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!-- /.form-group -->
+
+          <div class="form-group">
+                <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="altoriesgoafp">
+                      <label for="altoriesgoafp">
+                        Alto Nivel Riesgo ARL
+                      </label>
+                    </div>
+            </div>
+            <!-- /.input group -->
+          </div>
+
+          <div class="form-group" id="divaltoriesgoafp" style="display: none;">
+
+            <label for="exampleSelectRounded0">Nivel Riesgo ARL<code> &nbsp;*</code></label>
+            <select class="custom-select rounded-0" id="select-nivelriesgoarls">
+              <!-- <option>Value 1</option> -->
+
+            </select>
+
+          </div>
+
+          <!-- /.form-group -->
+
+          <div class="form-group">
+                <div class="form-group clearfix">
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="retencionfuente">
+                      <label for="retencionfuente">
+                        Retencion En La Fuente
+                      </label>
+                    </div>
+            </div>
+            <!-- /.input group -->
+
+
+                <div class="form-group" id="divretencionfuente" style="display: none;">
+                  <label for="exampleSelectRounded0">Procedimiento RETENCION EN LA FUENTE <code> &nbsp;*</code></label>
+                  <select class="custom-select rounded-0" id="select-metodoretencionfuente">
+                    <option value="" selected="true" disabled="disabled">Selecione un Procedimiento RTF</option>
+                    <option value="1">Procedimiento 1</option>
+                    <option value="2">Procedimiento 2</option>
+  
+                  </select>
+                </div>
+
+            <!-- /.form-group -->
+
+
+                <div class="form-group">
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                              <input type="checkbox" id="estatus">
+                              <label for="estatus">
+                                Excluir Empleado
+                              </label>
+                            </div>
+                          </div>
+                    <!-- /.input group -->
+                  </div>
+
+
+                  <div class="form-group" id="divestatus" style="display: none;">
+                    <label>Mesaje Estatus empleado</label>
+        
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        </div>
+                        <textarea id="msgEstatus" class="form-control" rows="3" placeholder="Mesaje Estatus..."></textarea>
+                    </div> 
+        
+                  </div>
+                  <!-- /.form-group -->
+
+
+
+          <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button> 
+            <button type="submit" id="form" class="btn btn-primary float-right">Actualizar</button>
+          </div>
+
+
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+          <!-- <button type="button" class="btn btn-primary">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+
+$("#form").submit(function(e) {
+e.preventDefault();   
+
+const form = document.getElementById('form');
+const formData = new FormData(form);
+
+var sueldo = $('#sueldo').val();
+var observaciones = $('#observaciones').val();
+var inicio = $('#inicio_').val();
+var fechaterminacion = $('#fechaterminacion_').val();
+var msgEstatus = $('#msgEstatus').val();
+var responsable_id = $('#responsable_id').val();
+
+var estatus =$('#estatus').is(':checked') ? 0 : 1;
+var altoriesgoafp =$('#altoriesgoafp').is(':checked') ? 1 : 0;
+var retencionfuente =$('#retencionfuente').is(':checked') ? 1 : 0;
+
+var eps_id = $('#select-epss').val()? $('#select-epss').val() : ''; 
+var arl_id = $('#select-arls').val()? $('#select-arls').val() : ''; 
+var fondopensione_id = $('#select-fondopensiones').val()? $('#select-fondopensiones').val() : ''; 
+var fondocesantia_id = $('#select-fondocesantias').val()? $('#select-fondocesantias').val() : ''; 
+var cajacompensacione_id = $('#select-cajacompensaciones').val()? $('#select-cajacompensaciones').val() : ''; 
+var tipocontrato_id = $('#select-tipocontratos').val()? $('#select-tipocontratos').val() : ''; 
+var periodicidadpago_id = $('#select-periodicidadpagos').val()? $('#select-periodicidadpagos').val() : ''; 
+var cargoempresa_id = $('#select-cargoempresas').val()? $('#select-cargoempresas').val() : ''; 
+var tiposueldo_id = $('#select-tiposueldos').val()? $('#select-tiposueldos').val() : ''; 
+var metodopagonomina_id = $('#select-metodopagonominas').val()? $('#select-metodopagonominas').val() : ''; 
+var nivelarl_id = $('#select-nivelarls').val()? $('#select-nivelarls').val() : ''; 
+var nivelriesgoarl_id = $('#select-nivelriesgoarls').val()? $('#select-nivelriesgoarls').val() : ''; 
+var metodoretencionfuente = $('#select-metodoretencionfuente').val()? $('#select-metodoretencionfuente').val() : ''; 
+
+formData.append("sueldo", sueldo);
+formData.append("observaciones", observaciones);
+formData.append("inicio", inicio);
+formData.append("fechaterminacion", fechaterminacion);
+formData.append("msgEstatus", msgEstatus);
+formData.append("responsable_id", responsable_id);
+formData.append("estatus", estatus);
+formData.append("altoriesgoafp", altoriesgoafp);
+formData.append("retencionfuente", retencionfuente);
+formData.append("eps_id", eps_id);
+formData.append("arl_id", arl_id);
+formData.append("fondopensione_id", fondopensione_id);
+formData.append("fondocesantia_id", fondocesantia_id);
+formData.append("cajacompensacione_id", cajacompensacione_id);
+formData.append("tipocontrato_id", tipocontrato_id);
+formData.append("periodicidadpago_id", periodicidadpago_id);
+formData.append("cargoempresa_id", cargoempresa_id);
+formData.append("tiposueldo_id", tiposueldo_id);
+formData.append("metodopagonomina_id", metodopagonomina_id);
+formData.append("nivelarl_id", nivelarl_id);
+formData.append("nivelriesgoarl_id", nivelriesgoarl_id);
+formData.append("metodoretencionfuente", metodoretencionfuente);
+formData.append('_method', 'PUT');
+
+$.ajax({
+    method: "POST",
+    url: url_back + "empleados/"+localStorage.editartercero,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    data: formData,
+    contentType: false,//formData
+    processData: false,//formData
+    success: function(respuesta) {
+
+      console.log('editar empleado respuesta');
+        localStorage.editartercero = '';
+        if(respuesta){
+            $('#ModalLong2').modal('hide');
+            $('#ModalLong2').removeClass('show')
+            $('.modal-backdrop').remove();
+
+            var mensaje = 'se actualizado de forma correcta ';
+            sweetMessage('success', mensaje); 
+            // $('#main_content').load(url_front + 'terceros/edit.html'); //TODO: No Recargar arriba elimino el modal de forma manual
+        } else {
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    },
+    error: function(respuesta) {
+
+        if(respuesta.responseJSON.error){
+            $.each(respuesta.responseJSON.error.message, function (key, item) {
+                var mensaje = item[0];
+                sweetMessage('error', mensaje);
+            });
+
+        }else{
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    }
+});
+});
+
+
+//**************************************************************SELECT CONSTRUCION*****************************************************************
+
+var obtenerSelect = function(url, select, id){
+    url_tipo= url+ '/' +id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_tipo,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var html = '';
+            html += '<option value="'+ respuesta.data.id+'">';
+            html += respuesta.data.descripcion;
+            html += '</option>';
+            obtenerSelects(url, select, id, html);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+function obtenerSelects(url, select, id = null,  base = null) {
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $(select).html(crearHtml(respuesta.data, base, id));
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })     
+}
+
+var crearHtml = function(data, base = null, id = null) {
+    if (base) {
+            var html = base;
+            $.each(data, function (key, item) {
+                if(id != item.id){
+                    html += '<option value="'+ item.id+'">';
+                    html += item.descripcion;
+                    html += '</option>';
+                }
+            });
+        return html;
+    } else {
+            var html = '<option value="">Seleccione..</option>';
+            $.each(data, function (key, item) {
+                html += '<option value="'+ item.id+'">';
+                html += item.descripcion;
+                html += '</option>';
+            });
+        return html;
+    }
+}
+
+$('#estatus').change(function(){    
+    if($('input[id=estatus]').is(':checked')){
+        $("#divestatus").show();
+    }else{
+        $("#divestatus").hide();
+    }
+});
+
+$('#altoriesgoafp').change(function(){    
+    if($('input[id=altoriesgoafp]').is(':checked')){
+        $("#divaltoriesgoafp").show();
+    }else{
+        $("#divaltoriesgoafp").hide();
+    }
+});
+
+$('#retencionfuente').change(function(){    
+    if($('input[id=retencionfuente]').is(':checked')){
+        $("#divretencionfuente").show();
+    }else{
+        $("#divretencionfuente").hide();
+    }
+});
+
+//***************************************************autocompletar*******************
+
+$( "#responsable" ).autocomplete({
+        source: function( request, auto ) {
+            var url_empl = 'empresas/'+ localStorage.empresa_id+ '/empleados?search='+$('#responsable').val();
+
+           $.ajax({
+             method: "GET",
+             url: url_back + url_empl,
+             headers: { 
+                Authorization: 'Bearer ' + localStorage.access_token
+            },
+             dataType: "json",
+             success: function(respuesta) {
+                auto(respuesta);
+             }
+           });
+        },
+        autoFocus: true,
+        minLength: 2,
+        appendTo: "#ModalLong2",
+        select: function (event, ui) {
+          // Set selection
+          $('#responsable').val(ui.item.label); // display the selected text
+          $('#responsable_id').val(ui.item.value); // save selected id to input
+          return false;
+        }
+     });
+//*********************************************************************************************************************************
+
+var obtenerTercero = function(id){
+    url_ter= 'terceros/' + id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_ter,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            $('#responsable').val(respuesta.data.nombres);
+            $('#responsable_id').val(respuesta.data.id);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+var obtenerEntidadnomina = function(search, select, id){
+  //empresas/1/entnominas?search=arl
+    url_ent= 'entnominas/'+ id ;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_ent,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+            var html = '';
+            html += '<option value="'+ respuesta.data.id+'">';
+            html += respuesta.data.codigo +'-'+ respuesta.data.descripcion;
+            html += '</option>';
+
+            obtenerEntidadnominas(search, select, html,  id);
+          
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+var obtenerEntidadnominas = function(search, select, base=null, id = null){
+    url_ent= 'empresas/' + localStorage.empresa_id + '/entnominas?search='+search;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_ent,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+        if (base) {
+            var html = base;
+            $.each(respuesta, function (key, item) {
+                if(id != item.id){
+                    html += '<option value="'+ item.id+'">';
+                    html += item.codigo +'-'+ item.descripcion;
+                    html += '</option>';
+                   }
+                 });
+        } else {
+            var html = '<option value="">Seleccione..</option>';
+            $.each(respuesta, function (key, item) {
+                html += '<option value="'+ item.id+'">';
+                html += item.codigo +'-'+ item.descripcion;
+                html += '</option>';
+            });
+        }
+
+          $(select).html(html);
+      
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+function obtenerempleado(id){
+
+var url = 'empleados/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#sueldo').val(respuesta.data.sueldo);
+        $('#observaciones').val(respuesta.data.observaciones);
+        $('#msgEstatus').val(respuesta.data.msgEstatus);
+        $('#inicio_').val(respuesta.data.inicio);
+        $('#fechaterminacion_').val(respuesta.data.fechaterminacion);
+        $('#select-metodoretencionfuente').val(respuesta.data.metodoretencionfuente);
+
+        respuesta.data.estatus == 1 ? $('#estatus').prop( "checked", false ) : $('#estatus').prop( "checked", true );
+        respuesta.data.altoriesgoafp == 1 ? $('#altoriesgoafp').prop( "checked", true ) : $('#altoriesgoafp').prop( "checked", false );
+        respuesta.data.retencionfuente == 1 ? $('#retencionfuente').prop( "checked", true ) : $('#retencionfuente').prop( "checked", false );
+
+        if($('input[id=estatus]').is(':checked')){
+            $("#divestatus").show();
+        }
+
+        if($('input[id=altoriesgoafp]').is(':checked')){
+            $("#divaltoriesgoafp").show();
+        }
+
+        if($('input[id=retencionfuente]').is(':checked')){
+            $("#divretencionfuente").show();
+        }
+
+        // 'altoriesgoafp',//activo o desctivado (extra en caso que se defina +10% fondo pensiones en base al salario)
+
+        //****************************entidades de nomina*******************
+        if(respuesta.data.eps_id){
+          obtenerEntidadnomina('eps','#select-epss', respuesta.data.eps_id);
+        }else{
+          obtenerEntidadnominas('eps','#select-epss');
+        }
+
+        if(respuesta.data.arl_id){
+          obtenerEntidadnomina('arl','#select-arls', respuesta.data.arl_id);
+        }else{
+          obtenerEntidadnominas('arl','#select-arls');
+        }
+
+        if(respuesta.data.fondopensione_id){
+          obtenerEntidadnomina('afp','#select-fondopensiones', respuesta.data.fondopensione_id);
+        }else{
+          obtenerEntidadnominas('afp','#select-fondopensiones');
+        }
+
+        if(respuesta.data.fondocesantia_id){
+          obtenerEntidadnomina('fondocesantias','#select-fondocesantias', respuesta.data.fondocesantia_id);
+        }else{
+          obtenerEntidadnominas('fondocesantias','#select-fondocesantias');
+        }
+
+        if(respuesta.data.cajacompensacione_id){
+          obtenerEntidadnomina('ccf','#select-cajacompensaciones', respuesta.data.cajacompensacione_id);
+        }else{
+          obtenerEntidadnominas('ccf','#select-cajacompensaciones');
+        }
+
+       //*************************************** detalles del trabajador*****************
+
+        if(respuesta.data.responsable_id){
+            obtenerTercero(respuesta.data.responsable_id);
+        }
+
+        if(respuesta.data.tipocontrato_id){
+            obtenerSelect('tipocontratos', '#select-tipocontratos', respuesta.data.tipocontrato_id);
+        }else{
+            obtenerSelects('tipocontratos', '#select-tipocontratos');
+        }
+
+        if(respuesta.data.periodicidadpago_id){
+            obtenerSelect('periodicidadpagos', '#select-periodicidadpagos', respuesta.data.periodicidadpago_id);
+        }else{
+            obtenerSelects('periodicidadpagos', '#select-periodicidadpagos');
+        }
+
+        if(respuesta.data.cargoempresa_id){
+            obtenerSelect('cargoempresas', '#select-cargoempresas', respuesta.data.cargoempresa_id);
+        }else{
+            obtenerSelects('cargoempresas', '#select-cargoempresas');//TODO: controller
+        }
+
+        if(respuesta.data.tiposueldo_id){
+            obtenerSelect('tiposueldos', '#select-tiposueldos', respuesta.data.tiposueldo_id);
+        }else{
+            obtenerSelects('tiposueldos', '#select-tiposueldos');
+        }
+
+        if(respuesta.data.metodopagonomina_id){
+            obtenerSelect('metodopagonominas', '#select-metodopagonominas', respuesta.data.metodopagonomina_id);
+        }else{
+            obtenerSelects('metodopagonominas', '#select-metodopagonominas');
+        }
+       
+        if(respuesta.data.nivelarl_id){
+            obtenerSelect('nivelarls', '#select-nivelarls', respuesta.data.nivelarl_id);
+        }else{
+            obtenerSelects('nivelarls', '#select-nivelarls');
+        }
+
+        if(respuesta.data.nivelriesgoarl_id){
+            obtenerSelect('nivelriesgoarls', '#select-nivelriesgoarls', respuesta.data.nivelriesgoarl_id);
+        }else{
+            obtenerSelects('nivelriesgoarls', '#select-nivelriesgoarls');
+        }
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerempleado(localStorage.editartercero);
+
+});
+
+
+$(function() {
+    //Date picker
+ $("#inicio").datetimepicker({
+        locale: 'es',
+        format: "YYYY-MM-DD",  
+        maxDate: moment(),
+        minDate: moment().subtract(99, 'year'),
+        timepicker:false, 
+        autoclose: true,
+        showButtonPanel: true
+ });
+
+ $("#fechaterminacion").datetimepicker({
+        locale: 'es',
+        format: "YYYY-MM-DD",  
+        maxDate: moment(),
+        minDate: moment().subtract(99, 'year'),
+        timepicker:false,
+        autoclose: true,
+        showButtonPanel: true,
+ });
+});
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+
+

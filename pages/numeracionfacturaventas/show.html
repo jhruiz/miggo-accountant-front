@@ -1,0 +1,123 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver Numero Facturacion venta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" action="" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="exampleSelectBorder">Tipo Facturacion</label>
+                <select class="custom-select form-control-border" id="select-tipofacturaciones" disabled>
+                <!-- <option>Value 1</option> -->
+        
+                </select>
+            </div>
+            </div>
+            
+        <div class="form-group">
+          <label>Numero Resolucion </label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div> 
+              <input type="text" id="numeroresolucion" class="form-control input-texto-alfanumerico" placeholder="Numero Resolucion" disabled>  
+          </div> 
+      </div> 
+
+      <div class="form-group">
+      <label>Fecha de Resolucion: </label>
+          <div class="input-group date" id="fecharesolucion" data-target-input="nearest">
+              <div class="input-group-prepend" data-target="#fecharesolucion" data-toggle="datetimepicker">
+                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+              <input type="text" id="fecharesoluciones" class="form-control datetimepicker-input" data-target="#fecharesolucion" disabled/>
+          </div>
+      </div>
+
+  <div class="form-group">
+      <label>prefijo </label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+          </div> 
+          <input type="text" id="prefijo" class="form-control input-texto-alfanumerico" placeholder="Prefijo" disabled>  
+      </div> 
+  </div> 
+
+  <div class="form-group">
+      <label>Consecutivo Desde </label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+          </div> 
+          <input type="text" id="consecutivodesde" class="form-control input-texto-alfanumerico" placeholder="Consecutivo Desde" disabled>  
+      </div> 
+  </div> 
+
+  <div class="form-group">
+      <label>Consecutivo Hasta </label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+          </div> 
+          <input type="text" id="consecutivohasta" class="form-control input-texto-alfanumerico" placeholder="Consecutivo Hasta" disabled>  
+      </div> 
+  </div> 
+
+
+  <div class="form-group">
+      <label>Vigencia Meses </label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+          </div> 
+          <input type="text" id="vigenciameses" class="form-control input-texto-alfanumerico" placeholder="Vigencia Meses" disabled>  
+      </div> 
+  </div> 
+
+  <div class="form-group">
+      <label>Alerta Consecutiva </label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+          </div> 
+          <input type="text" id="alertaconsecutiva" class="form-control input-texto-alfanumerico" placeholder="Alerta Consecutiva" disabled>  
+      </div> 
+  </div> 
+
+        <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+        </div>
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/numeracionfacturaventas/show.js"></script>

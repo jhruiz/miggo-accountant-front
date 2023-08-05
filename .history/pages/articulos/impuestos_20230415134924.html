@@ -1,0 +1,258 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong3" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Impuesto Articulo </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+        
+        
+        <form id="formImpuesto"  method="PUT" action="" enctype="multipart/form-data">
+
+        <div class="row">
+          <div class="col-sm-4">
+
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+              <label for="select-tipoimpuestos">Tipo Impuesto </label>
+                <select class="form-control" id="select-tipoimpuestocompras" required></select>
+
+              </div>
+
+              <div class="form-group col-md-4">
+                  <label for="ivacompra">IVA</label>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control input-numero-decimal2" id="ivacompra" readonly>
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+              <div class="form-group col-md-10">
+                <label for="responsable">  IVA Compras (PUC) </label>
+                <input class="form-control input-texto-alfanumerico" id="comprapuc" placeholder="cuenta PUC de Compra" required>
+              </div>
+                <input class="form-control input-numero" id="comprapuc_id" hidden>
+
+
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="adicionavalorcosto">
+                    <label class="form-check-label" for="adicionavalorcosto">
+                      Adicionar valor al costo del articulo
+                    </label>
+                  </div>
+                </div>
+
+
+          </div>
+          <div class="col-sm-4">
+
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+              <label for="select-tipoimpuestos">Tipo Impuesto </label>
+                <select class="form-control" id="select-tipoimpuestoventas" required></select>
+
+              </div>
+
+              <div class="form-group col-md-4">
+                  <label for="ivaventa">IVA</label>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control input-numero" id="ivaventa" readonly>
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+              <div class="form-group col-md-10">
+                <label for="responsable">  IVA Venta (PUC) </label>
+                <input class="form-control input-texto-alfanumerico" id="ventapuc" placeholder="cuenta PUC de Venta" required>
+              </div>
+                <input class="form-control input-numero" id="ventapuc_id" hidden>
+
+          </div>
+          <div class="col-sm-4">
+
+              <div class="form-group col-md-10">
+                <label for="responsable">  Impuesto Consumo (PUC) </label>
+                <input class="form-control input-texto-alfanumerico" id="consumopuc" placeholder="cuenta PUC de Consumo">
+              </div>
+                <input class="form-control input-numero" id="consumopuc_id" hidden>
+
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="impuestoconsumo">Impuesto</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control input-numero" id="impuestoconsumo" readonly>
+                      <div class="input-group-append">
+                        <span class="input-group-text">%</span>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="form-group col-md-6">
+                      <label for="valorempaque">Valor Empaque</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control input-numero" id="valorempaque">
+                      <div class="input-group-append">
+                        <span class="input-group-text">$</span>
+                      </div>
+                    </div>
+                  </div>
+    
+                </div>
+
+                <div class="row">
+
+                <div class="form-group col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="aplicarconsumocompra">
+                    <label class="form-check-label" for="aplicarconsumocompra">
+                      Aplicar en compra
+                    </label>
+                  </div>
+                </div>
+          
+                <div class="form-group col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="adicionaconsumocosto">
+                    <label class="form-check-label" for="adicionaconsumocosto">
+                     Adicionar valor al costo 
+                    </label>
+                  </div>
+                </div>
+
+          </div>
+
+        </div>
+        </div>
+
+        <hr class="form-group info" style="border: 1%; border-color: rgba(255, 255, 255, 0.073);">
+<br>
+
+        <div class="form-row">
+          <div class="col-sm-4">
+
+
+            <div class="form-group col-md-10">
+              <label for="responsable">Retefuente Compra (PUC) </label>
+              <input class="form-control input-texto-alfanumerico" id="rtfcomprapuc" placeholder="Cuenta PUC de Retefuente Compra">
+          </div>
+              <input class="form-control input-numero" id="rtfcomprapuc_id" hidden>
+            
+          
+
+              <div class="form-group col-md-6">
+                  <label for="retefuenteporcentaje">Retefuente</label>
+                <div class="input-group mb-3">
+                    <input type="text" id="rtfcompraimpuesto" class="form-control input-numero-decimal2" placeholder="Retefuente" readonly>  
+                    <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                    </div>
+                </div> 
+            </div>
+
+
+
+          </div>
+          <div class="col-sm-4">
+
+
+            <div class="form-group col-md-10">
+              <label for="responsable">Retefuente Venta (PUC) </label>
+              <input class="form-control input-texto-alfanumerico" id="rtfventapuc" placeholder="Cuenta PUC de Retefuente Venta">
+          </div>
+              <input class="form-control input-numero" id="rtfventapuc_id" hidden>
+            
+          
+
+              <div class="form-group col-md-6">
+                  <label for="retefuenteporcentaje">Retefuente</label>
+                <div class="input-group mb-3">
+                    <input type="text" id="rtfventaimpuesto" class="form-control input-numero" placeholder="Retefuente" readonly>  
+                    <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                    </div>
+                </div> 
+            </div>
+
+
+          </div>
+          <div class="col-sm-4">
+
+
+            <div class="form-group col-md-12">
+              <label for="inputZip">Retencion ICA</label>
+              <div class="form-group col-md-7">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control input-numero" id="ica">
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="basereteica">
+                <label class="form-check-label" for="basereteica">
+                  Base Retencion ICA
+                </label>
+              </div>
+            </div>
+        
+
+          </div>
+        </div>
+
+        <hr class="form-group info" style="border: 1%; border-color: rgba(255, 255, 255, 0.073);">
+
+            <div class="col-12 float-right">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+            </div> 
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <input type="text" id="costounitario" hidden>  
+
+        </div>
+      </div>
+    </div>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/articulos/impuestos.js"></script>

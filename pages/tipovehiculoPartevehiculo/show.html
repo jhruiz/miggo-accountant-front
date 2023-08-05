@@ -1,0 +1,98 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver Parte Vehiculo </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+    <table id="partes" class="table table-bordered table-striped"></table>
+
+  </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+          <!-- <button type="button" class="btn btn-primary">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+
+
+
+function obtenerTipoParte(id){
+
+  var url = 'tipovehiculos/'+ id +'/partevehiculos';
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+               
+                      var htmlTable = "";
+                      htmlTable += '<thead>';
+                      htmlTable += '<tr>';
+                      htmlTable += '<th> Partes </th>';
+                      htmlTable += '<th> Extra </th>';
+                      htmlTable += '</tr>';
+                      htmlTable += '</thead>';
+                      htmlTable += '<tbody>';
+
+                      $.each(respuesta.data, function (key, item) {
+                      htmlTable += '<tr>';
+                      htmlTable += '<th>' + item.descripcion + '</th>';
+                      htmlTable += '<th>' + (item.extra == null || item.extra == '' ? ' ' : item.extra) + '</th>';
+                      htmlTable += '</tr>';
+
+                      });
+
+                      htmlTable += '</tbody>';
+                      $('#partes').html(htmlTable);
+
+
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerTipoParte(localStorage.ver);
+      localStorage.ver = '';
+});
+
+</script>

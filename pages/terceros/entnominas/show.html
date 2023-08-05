@@ -1,0 +1,218 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver Entidad de Nomina</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" id="form" action="" enctype="multipart/form-data">
+  
+  
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+            </div>
+            <input type="text" id="codigo" class="form-control" placeholder="Codigo" disabled>
+        </div>
+  
+        <div class="form-group">
+            <label>Nombre a Mostrar al Crear Empleado</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <textarea id="descripcion" class="form-control" rows="3" placeholder="Descripcion..." disabled></textarea>
+            </div> 
+
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="form-group clearfix">
+                      <div class="icheck-primary d-inline">
+                        <input type="checkbox" id="estatus" disabled>
+                        <label for="estatus">
+                          Excluir Entidad
+                        </label>
+                      </div>
+                    </div>
+              </div>
+              <!-- /.input group -->
+            </div>
+
+
+                  
+                        <!-- iCheck -->
+                        <div class="card card-success" id="divestatus" style="display: none;">
+                          <div class="card-header">
+                            <h3 class="card-title">Marque la casilla que corresponde a esta Entidad Nomina</h3>
+                          </div>
+                          <div class="card-body">
+
+                            <div class="row">
+
+                              <div class="col-sm-6">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" id="eps" name="radio1" disabled>
+                                  <label class="form-check-label">EPS</label>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" id="arl" name="radio1" disabled>
+                                  <label class="form-check-label">ARL</label>
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="row">
+
+                              <div class="col-sm-6">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" id="sena" name="radio1" disabled>
+                                  <label class="form-check-label">SENA</label>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" id="icbf" name="radio1" disabled>
+                                      <label class="form-check-label">ICBF</label>
+                                    </div>
+                              </div>
+
+                            </div>
+                            <div class="row">
+
+                              <div class="col-sm-6">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" id="ccf" name="radio1" disabled>
+                                  <label class="form-check-label">CCF</label>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="afp" name="radio1" disabled>
+                                        <label class="form-check-label">AFP</label>
+                                      </div>
+                              </div>
+
+                            </div>
+                            <div class="row">
+
+                              <div class="col-sm-6">
+                                 <div class="form-group clearfix">
+                                      <div class="icheck-success d-inline">
+                                          <input type="checkbox" id="fondocesantias" disabled>
+                                          <label for="fondocesantias">
+                                            Fondo Cesantias
+                                          </label>
+                                      </div>
+                                    </div>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+                          <div class="card-footer">
+                          </div>
+                        </div>
+  
+          <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button> 
+          </div>
+  
+      </form>
+  
+  </div>
+  
+  </div>
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+          <!-- <button type="button" class="btn btn-primary">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+//*********************************************************************************************************************************
+
+
+function obtenerEntnomina(id){
+
+var url = 'entnominas/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+      console.log('entnomina id' + id);
+        $('#codigo').val(respuesta.data.codigo);
+        $('#descripcion').val(respuesta.data.descripcion);
+
+        respuesta.data.estatus == 1 ? $('#estatus').prop( "checked", false ) : $('#estatus').prop( "checked", true );
+        respuesta.data.eps == 1 ? $('#eps').prop( "checked", true ) : $('#eps').prop( "checked", false );
+        respuesta.data.arl == 1 ? $('#arl').prop( "checked", true ) : $('#arl').prop( "checked", false );
+        respuesta.data.sena == 1 ? $('#sena').prop( "checked", true ) : $('#sena').prop( "checked", false );
+        respuesta.data.icbf == 1 ? $('#icbf').prop( "checked", true ) : $('#icbf').prop( "checked", false );
+        respuesta.data.ccf == 1 ? $('#ccf').prop( "checked", true ) : $('#ccf').prop( "checked", false );
+
+        respuesta.data.afp == 1 ? $('#afp').prop( "checked", true ) : $('#afp').prop( "checked", false ); //+
+        respuesta.data.fondocesantias == 1 ? $('#fondocesantias').prop( "checked", true ) : $('#fondocesantias').prop( "checked", false ); //+
+
+        if($('input[id=estatus]').is(':checked')){
+            $("#divestatus").hide();
+        }else{
+            $("#divestatus").show();
+        }
+
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+  $('.preloader').hide("slow");
+    validarLogin();
+    obtenerEntnomina(localStorage.vertercero);
+    localStorage.vertercero = '';
+
+});
+
+</script>
+

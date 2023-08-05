@@ -1,0 +1,139 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver Retencion Fuente </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" action="" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+          <label>Concepto </label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div> 
+              <textarea id="concepto" class="form-control" rows="3" placeholder="Concepto ..." disabled></textarea>
+          </div> 
+      </div> 
+
+      <div class="form-group">
+          <label>Base Mínima UVT </label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div> 
+              <input type="text" id="basemínimauvt" class="form-control" placeholder="Base Mínima UVT" disabled>
+          </div> 
+      </div> 
+
+      <div class="form-group">
+        <label>Base Mínima Pesos </label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+            </div> 
+            <input type="text" id="basemínimapesos" class="form-control" placeholder="Base Mínima Pesos" disabled>
+        </div> 
+    </div> 
+
+    <div class="form-group">
+      <label>Operador </label>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+          </div> 
+          <input type="text" id="operador" class="form-control" placeholder="Operador" disabled>
+      </div> 
+  </div> 
+
+  <div class="form-group">
+    <label>Porcentaje </label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+        </div> 
+        <input type="text" id="porcentaje" class="form-control" placeholder="Porcentaje" disabled>
+    </div> 
+</div> 
+
+<div class="form-group">
+  <label>Porcentaje U</label>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+      </div> 
+      <input type="text" id="porcentajeu" class="form-control" placeholder="Porcentaje U" disabled>
+  </div> 
+</div> 
+
+        <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+        </div>
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+function obtenerRetencionfuente(id){
+
+var url = 'retencionfuentes/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#concepto').val(respuesta.data.concepto);
+        $('#basemínimauvt').val(respuesta.data.basemínimauvt);
+        $('#basemínimapesos').val(respuesta.data.basemínimapesos);
+        $('#operador').val(respuesta.data.operador);
+        $('#porcentaje').val(respuesta.data.porcentaje);
+        $('#porcentajeu').val(respuesta.data.porcentajeu);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerRetencionfuente(localStorage.ver);
+      localStorage.ver = '';
+});
+
+</script>

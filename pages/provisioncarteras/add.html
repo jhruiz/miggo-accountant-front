@@ -1,0 +1,58 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong3" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Crear Provision Cartera</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+        
+        <form method="POST" id="form" action="" enctype="multipart/form-data">
+  
+            <div class="form-group">
+                <label for="exampleSelectRounded0">Procedimiento <code> &nbsp;*</code></label>
+                <select class="custom-select rounded-0" id="select-metodoprovision" required>
+                    <option value="0" selected="true" disabled="disabled">Selecione un Procedimiento</option>
+                    <option value="1">Global</option>
+                    <option value="2">Individual</option>
+                </select>
+            </div>
+
+            <div class="col-12 float-right">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+            </div> 
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/provisioncarteras/add.js"></script>
+

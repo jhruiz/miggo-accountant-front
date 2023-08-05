@@ -1,0 +1,461 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Lista Precio Servicio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+        
+        
+        <form id="formPrecio"  method="PUT" action="" enctype="multipart/form-data">
+
+        <div class="row float-right">
+          <div class="col-sm-4">
+
+
+            <div class="form-group col-md-12">
+                   Lista Principal
+            </div>
+            <input type="text" id="lista0" hidden>  
+
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">1.</span>
+                  </div> 
+                  <input type="text" id="precio00" class="form-control input-numero-decimal2 lista0" placeholder="Precio 1">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div>
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">2.</span>
+                  </div> 
+                  <input type="text" id="precio01" class="form-control input-numero-decimal2 lista0" placeholder="Precio 2">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div>
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">3.</span>
+                  </div> 
+                  <input type="text" id="precio02" class="form-control input-numero-decimal2 lista0" placeholder="Precio 3">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div> 
+
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">4.</span>
+                </div> 
+                <input type="text" id="precio03" class="form-control input-numero-decimal2 lista0" placeholder="Precio 4">  
+                <div class="input-group-append">
+                  <span class="input-group-text monedaSimbolo"></span>
+                </div>
+            </div> 
+        </div>
+
+        <div class="form-group col-md-9">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text">5.</span>
+              </div> 
+              <input type="text" id="precio04" class="form-control input-numero-decimal2 lista0" placeholder="Precio 5">  
+              <div class="input-group-append">
+                <span class="input-group-text monedaSimbolo"></span>
+              </div>
+          </div> 
+      </div>
+
+      <div class="form-group col-md-9">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">6.</span>
+            </div> 
+            <input type="text" id="precio05" class="form-control input-numero-decimal2 lista0" placeholder="Precio 6">  
+            <div class="input-group-append">
+              <span class="input-group-text monedaSimbolo"></span>
+            </div>
+        </div> 
+    </div>
+
+    <div class="form-group col-md-9">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">7.</span>
+          </div> 
+          <input type="text" id="precio06" class="form-control input-numero-decimal2 lista0" placeholder="Precio 7">  
+          <div class="input-group-append">
+            <span class="input-group-text monedaSimbolo"></span>
+          </div>
+      </div> 
+  </div>
+
+  <div class="form-group col-md-9">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">8.</span>
+        </div> 
+        <input type="text" id="precio07" class="form-control input-numero-decimal2 lista0" placeholder="Precio 8">  
+        <div class="input-group-append">
+          <span class="input-group-text monedaSimbolo"></span>
+        </div>
+    </div> 
+</div>
+
+<div class="form-group col-md-9">
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+          <span class="input-group-text">9.</span>
+      </div> 
+      <input type="text" id="precio08" class="form-control input-numero-decimal2 lista0" placeholder="Precio 9">  
+      <div class="input-group-append">
+        <span class="input-group-text monedaSimbolo"></span>
+      </div>
+  </div> 
+</div>
+
+<div class="form-group col-md-9">
+  <label> Precio E-commerce </label>
+  <div class="input-group mb-3">
+      <input type="text" id="precio09" class="form-control input-numero-decimal2 lista0" placeholder="E-commerce">  
+      <div class="input-group-append">
+        <span class="input-group-text monedaSimbolo"></span>
+      </div>
+  </div> 
+</div>
+
+          </div>
+          <div class="col-sm-4">
+
+            <div class="form-row text-center">
+              <div class="col-sm-6 form-group">
+                 Lista 1
+              </div>
+                <div class="col-sm-3">
+
+                  <div id="div1" class="form-group" style="display: none;" >
+                    <button class="btn btn-success btn-sm" type="button"  id="crear1">
+                      <i class="fas fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                  </div>
+
+                </div>
+            </div>
+
+            <input type="text" id="lista1" hidden>  
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">1.</span>
+                  </div> 
+                  <input type="text" id="precio10" class="form-control input-numero-decimal2 lista1" placeholder="Precio 1">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div>
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">2.</span>
+                  </div> 
+                  <input type="text" id="precio11" class="form-control input-numero-decimal2 lista1" placeholder="Precio 2">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div>
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">3.</span>
+                  </div> 
+                  <input type="text" id="precio12" class="form-control input-numero-decimal2 lista1" placeholder="Precio 3">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div> 
+
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">4.</span>
+                </div> 
+                <input type="text" id="precio13" class="form-control input-numero-decimal2 lista1" placeholder="Precio 4">  
+                <div class="input-group-append">
+                  <span class="input-group-text monedaSimbolo"></span>
+                </div>
+            </div> 
+        </div>
+
+        <div class="form-group col-md-9">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text">5.</span>
+              </div> 
+              <input type="text" id="precio14" class="form-control input-numero-decimal2 lista1" placeholder="Precio 5">  
+              <div class="input-group-append">
+                <span class="input-group-text monedaSimbolo"></span>
+              </div>
+          </div> 
+      </div>
+
+      <div class="form-group col-md-9">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">6.</span>
+            </div> 
+            <input type="text" id="precio15" class="form-control input-numero-decimal2 lista1" placeholder="Precio 6">  
+            <div class="input-group-append">
+              <span class="input-group-text monedaSimbolo"></span>
+            </div>
+        </div> 
+    </div>
+
+    <div class="form-group col-md-9">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">7.</span>
+          </div> 
+          <input type="text" id="precio16" class="form-control input-numero-decimal2 lista1" placeholder="Precio 7">  
+          <div class="input-group-append">
+            <span class="input-group-text monedaSimbolo"></span>
+          </div>
+      </div> 
+  </div>
+
+  <div class="form-group col-md-9">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">8.</span>
+        </div> 
+        <input type="text" id="precio17" class="form-control input-numero-decimal2 lista1" placeholder="Precio 8">  
+        <div class="input-group-append">
+          <span class="input-group-text monedaSimbolo"></span>
+        </div>
+    </div> 
+</div>
+
+<div class="form-group col-md-9">
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+          <span class="input-group-text">9.</span>
+      </div> 
+      <input type="text" id="precio18" class="form-control input-numero-decimal2 lista1" placeholder="Precio 9">  
+      <div class="input-group-append">
+        <span class="input-group-text monedaSimbolo"></span>
+      </div>
+  </div> 
+</div>
+
+<div class="form-group col-md-9">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">10.</span>
+  </div> 
+      <input type="text" id="precio19" class="form-control input-numero-decimal2 lista1" placeholder="Precio 10">  
+      <div class="input-group-append">
+        <span class="input-group-text monedaSimbolo"></span>
+      </div>
+  </div> 
+</div>
+            
+          </div>
+          <div class="col-sm-4">
+
+            <div class="form-row text-center">
+              <div class="col-sm-6 form-group">
+                 Lista 2
+              </div>
+                <div class="col-sm-3">
+
+                  <div id="div2" class="form-group" style="display: none;" >
+                    <button class="btn btn-success btn-sm" type="button" id="crear2">
+                      <i class="fas fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                  </div>
+
+                </div>
+            </div>
+            <input type="text" id="lista2" hidden>  
+
+
+                  <div class="form-group col-md-9">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">1.</span>
+                        </div> 
+                        <input type="text" id="precio20" class="form-control input-numero-decimal2 lista2" placeholder="Precio 1">  
+                        <div class="input-group-append">
+                          <span class="input-group-text monedaSimbolo"></span>
+                        </div>
+                    </div> 
+                </div>
+
+                  <div class="form-group col-md-9">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">2.</span>
+                        </div> 
+                        <input type="text" id="precio21" class="form-control input-numero-decimal2 lista2" placeholder="Precio 2">  
+                        <div class="input-group-append">
+                          <span class="input-group-text monedaSimbolo"></span>
+                        </div>
+                    </div> 
+                </div>
+
+                  <div class="form-group col-md-9">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">3.</span>
+                        </div> 
+                        <input type="text" id="precio22" class="form-control input-numero-decimal2 lista2" placeholder="Precio 3">  
+                        <div class="input-group-append">
+                          <span class="input-group-text monedaSimbolo"></span>
+                        </div>
+                    </div> 
+                </div> 
+
+                <div class="form-group col-md-9">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">4.</span>
+                      </div> 
+                      <input type="text" id="precio23" class="form-control input-numero-decimal2 lista2" placeholder="Precio 4">  
+                      <div class="input-group-append">
+                        <span class="input-group-text monedaSimbolo"></span>
+                      </div>
+                  </div> 
+              </div>
+
+              <div class="form-group col-md-9">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">5.</span>
+                    </div> 
+                    <input type="text" id="precio24" class="form-control input-numero-decimal2 lista2" placeholder="Precio 5">  
+                    <div class="input-group-append">
+                      <span class="input-group-text monedaSimbolo"></span>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="form-group col-md-9">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">6.</span>
+                  </div> 
+                  <input type="text" id="precio25" class="form-control input-numero-decimal2 lista2" placeholder="Precio 6">  
+                  <div class="input-group-append">
+                    <span class="input-group-text monedaSimbolo"></span>
+                  </div>
+              </div> 
+          </div>
+
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">7.</span>
+                </div> 
+                <input type="text" id="precio26" class="form-control input-numero-decimal2 lista2" placeholder="Precio 7">  
+                <div class="input-group-append">
+                  <span class="input-group-text monedaSimbolo"></span>
+                </div>
+            </div> 
+        </div>
+
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">8.</span>
+                </div> 
+                <input type="text" id="precio27" class="form-control input-numero-decimal2 lista2" placeholder="Precio 8">  
+                <div class="input-group-append">
+                  <span class="input-group-text monedaSimbolo"></span>
+                </div>
+            </div> 
+          </div>
+
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">9.</span>
+                </div> 
+                <input type="text" id="precio28" class="form-control input-numero-decimal2 lista2" placeholder="Precio 9">  
+                <div class="input-group-append">
+                  <span class="input-group-text monedaSimbolo"></span>
+                </div>
+            </div> 
+          </div>
+
+          <div class="form-group col-md-9">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">10.</span>
+            </div> 
+                <input type="text" id="precio29" class="form-control input-numero-decimal2 lista2" placeholder="Precio 10">  
+                <div class="input-group-append">
+                  <span class="input-group-text monedaSimbolo"></span>
+                </div>
+            </div> 
+          </div>
+
+          </div>
+        </div>
+
+            <div class="col-12 float-right">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+            </div> 
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+
+
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+          <input type="text" id="costounitario" hidden>  
+
+        </div>
+      </div>
+    </div>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/servicios/listaprecios.js"></script>

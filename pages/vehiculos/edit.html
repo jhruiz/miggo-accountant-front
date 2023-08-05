@@ -1,0 +1,398 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Editar Vehiculo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+        
+        <form id="form"  method="PUT" action="" enctype="multipart/form-data">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <input type="text" id="placa" class="form-control input-texto-alfanumerico" placeholder="Placa" required>  <code>&nbsp;*</code>
+            </div> 
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <input type="text" id="cilindraje" class="form-control input-texto-alfanumerico" placeholder="Cilindraje" required>  <code>&nbsp;*</code>
+            </div> 
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                </div>
+                <input type="text" id="modelo" class="form-control input-texto-alfanumerico" placeholder="Modelo" required>  <code>&nbsp;*</code>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                </div>
+                <input type="text" id="color" class="form-control input-texto-espacio" placeholder="Color" required>  <code>&nbsp;*</code>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <input type="text" id="num_motor" class="form-control input-texto-alfanumerico" placeholder="Serial del Motor" required>  <code>&nbsp;*</code>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                <input type="text" id="num_chasis" class="form-control input-texto-alfanumerico" placeholder="Serial del Chasis" required>  <code>&nbsp;*</code>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                </div>
+                <input type="text" id="linea" class="form-control" placeholder="Linea" required>  <code>&nbsp;*</code>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleSelectBorder">Tipo Vehiculo<code> &nbsp;*</code></label>
+                <select class="custom-select form-control-border" id="select-tipovehiculo" required>
+                  <!-- <option>Value 1</option> -->
+  
+                </select>
+              </div>
+
+            <div class="form-group">
+              <label for="exampleSelectBorder">Marca Vehiculo<code> &nbsp;*</code></label>
+              <select class="custom-select form-control-border" id="select-marcavehiculo" required>
+                <!-- <option>Value 1</option> -->
+
+              </select>
+            </div>
+
+              <!-- SOAT -->
+              <div class="form-group">
+                <label>Fecha SOAT:</label>
+                  <div class="input-group date" id="soat" data-target-input="nearest">
+                      <input type="text" id="soat_" class="form-control datetimepicker-input" data-target="#soat"/>
+                      <div class="input-group-append" data-target="#soat" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- TECNO -->
+              <div class="form-group">
+                <label>Fecha TECNO:</label>
+                  <div class="input-group date" id="tecno" data-target-input="nearest">
+                      <input type="text" id="tecno_" class="form-control datetimepicker-input" data-target="#tecno"/>
+                      <div class="input-group-append" data-target="#tecno" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
+              </div>
+
+            <div class="col-12 float-right">
+                <button type="submit" id="actualizar" class="btn btn-primary float-right">Actualizar</button>
+            </div> 
+
+        </form>
+
+   
+  </div>
+
+</div>
+</div>
+
+<!--  -->
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+
+<script>
+
+
+$("#form").submit(function(e) {
+e.preventDefault();   
+
+const form = document.getElementById('form');
+const formData = new FormData(form);
+
+var placa = $('#placa').val();
+var cilindraje = $('#cilindraje').val();
+var modelo =$('#modelo').val();
+var color = $('#color').val();
+var num_motor = $('#num_motor').val();
+var num_chasis = $('#num_chasis').val();
+var linea = $('#linea').val();
+var soat = $('#soat_').val();
+var tecno = $('#tecno_').val();
+var tipovehiculo_id = $('#select-tipovehiculo').val()? $('#select-tipovehiculo').val() : ''; 
+var marcavehiculo_id = $('#select-marcavehiculo').val()? $('#select-marcavehiculo').val() : ''; 
+
+formData.append("placa", placa);
+formData.append("cilindraje", cilindraje);
+formData.append("modelo", modelo);
+formData.append("color", color);
+formData.append("num_motor", num_motor);
+formData.append("num_chasis", num_chasis);
+formData.append("linea", linea);
+formData.append("soat", soat);
+formData.append("tecno", tecno);
+formData.append("tipovehiculo_id", tipovehiculo_id);
+formData.append("marcavehiculo_id", marcavehiculo_id);
+formData.append('_method', 'PUT');
+
+$.ajax({
+    method: "POST",
+    url: url_back + "vehiculos/"+localStorage.editar,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    data: formData,
+    contentType: false,//formData
+    processData: false,//formData
+    success: function(respuesta) {
+
+        localStorage.editar = '';
+        if(respuesta){
+            console.log(respuesta);
+            var mensaje = 'Vehiculo actualizado de forma correcta Placa.: '+ respuesta.data.placa + ' de Tipo: ' + respuesta.data.tipovehiculo.descripcion;
+            sweetMessage('success', mensaje); 
+            $('#main_content').load(url_front + 'vehiculos/index.html');
+        } else {
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+    },
+    error: function(respuesta) {
+
+        if(respuesta.responseJSON.error){
+            $.each(respuesta.responseJSON.error.message, function (key, item) {
+                var mensaje = item[0];
+                sweetMessage('error', mensaje);
+            });
+
+        }else{
+            var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+            sweetMessage('error', mensaje);
+        }
+ 
+
+    }
+});
+});
+
+
+var obtenerMarcavehiculo = function(id){
+    url_marca= 'marcavehiculos/'+id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_marca,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var htmlMarca = '';
+            htmlMarca += '<option value="'+ respuesta.data.id+'">';
+            htmlMarca += respuesta.data.descripcion;
+            htmlMarca += '</option>';
+            obtenerMarcavehiculos(htmlMarca, id);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+var obtenerTipovehiculo = function(id){
+    url_tipo= 'tipovehiculos/'+id;
+    $.ajax({
+    method: "GET",
+    url: url_back + url_tipo,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+            var htmlTipo = '';
+            htmlTipo += '<option value="'+ respuesta.data.id+'">';
+            htmlTipo += respuesta.data.descripcion;
+            htmlTipo += '</option>';
+            obtenerTipovehiculos(htmlTipo, id);
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+//***************************************************trae valores masivos de tipovehiculo, marcavehiculo*******************
+
+var obtenerTipovehiculos = function(base = null, id = null){
+    url_ide= 'tipovehiculos';
+    $.ajax({
+    method: "GET",
+    url: url_back + url_ide,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#select-tipovehiculo').html(crearHtml(respuesta.data, base, id));
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+/**
+* Genera el html con los marcavehiculo configurados en la base de datos
+*/
+function obtenerMarcavehiculos(base = null, id = null) {
+
+url = 'marcavehiculos';
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+        Authorization: 'Bearer ' + localStorage.access_token
+    },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#select-marcavehiculo').html(crearHtml(respuesta.data, base, id));
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })     
+}
+
+var crearHtml = function(data, base = null, id = null) {
+    if (base) {
+            var html = base;
+            $.each(data, function (key, item) {
+                if(id != item.id){
+                    html += '<option value="'+ item.id+'">';
+                    html += item.descripcion;
+                    html += '</option>';
+                }
+            });
+        return html;
+    } else {
+            var html = '<option value="">Seleccione..</option>';
+            $.each(data, function (key, item) {
+                html += '<option value="'+ item.id+'">';
+                html += item.descripcion;
+                html += '</option>';
+            });
+        return html;
+    }
+}
+
+function obtenerVehiculo(id){
+
+var url = 'vehiculos/'+ id;
+
+$.ajax({
+    method: "GET",
+    url: url_back + url,
+    headers: { 
+                  Authorization: 'Bearer ' + localStorage.access_token
+              },
+    dataType: "json",
+    success: function(respuesta) {
+
+        $('#placa').val(respuesta.data.placa);
+        $('#cilindraje').val(respuesta.data.cilindraje);
+        $('#modelo').val(respuesta.data.modelo);
+        $('#color').val(respuesta.data.color);
+        $('#num_motor').val(respuesta.data.num_motor);
+        $('#num_chasis').val(respuesta.data.num_chasis);
+        $('#linea').val(respuesta.data.linea);
+        $('#soat_').val(respuesta.data.soat); //TODO: validar se vence cada año
+        $('#tecno_').val(respuesta.data.tecno);
+
+        if(respuesta.data.marcavehiculo_id){
+            obtenerMarcavehiculo(respuesta.data.marcavehiculo_id);
+        }else{
+            obtenerMarcavehiculos();
+        }
+
+        if(respuesta.data.tipovehiculo_id){
+            obtenerTipovehiculo(respuesta.data.tipovehiculo_id);
+        }else{
+            obtenerTipovehiculos();
+        }
+
+    },
+    error: function() {
+        var mensaje = 'Se presentó un error. Por favor, inténtelo mas tarde.';
+        sweetMessage('error', mensaje);
+    }
+  })  
+}
+
+
+$( document ).ready(function() {
+    $('.preloader').hide("slow");
+      validarLogin();
+      obtenerVehiculo(localStorage.editar);
+
+    $('#linea').validCampo('abcdefghijklmnopqrstuvwxyziou# 0123456789._-');
+});
+
+
+
+$(function() {
+ $("#soat").datetimepicker({
+        locale: "es",
+        format: "YYYY-MM-DD",  
+        minDate: moment().subtract(1, 'year'),
+        timepicker:false,
+        autoclose: true,
+        showButtonPanel: true
+ });
+
+ $("#tecno").datetimepicker({
+        locale: "es",
+        format: "YYYY-MM-DD",  
+        minDate: moment().subtract(1, 'year'),
+        timepicker:false,
+        autoclose: true,
+        showButtonPanel: true
+ });
+});
+
+
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>

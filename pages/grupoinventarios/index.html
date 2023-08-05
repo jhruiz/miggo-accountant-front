@@ -1,0 +1,145 @@
+<div class="card card-main-content">
+
+  <div class="card-header">
+      <h2 class="card-title"><b>
+      </b></h2>
+  </div>
+
+
+<div class="card-body-datatable">
+
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 id="saludos"></h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">
+              <button class="btn btn-success btn-sm" type="submit" onclick="crearGrupoinventario()" data-toggle="modal" data-target="#ModalLong3">
+                <i class="fas fa fa-plus" aria-hidden="true" id="crear"></i>
+              </button>
+               <button class="btn btn-success btn-sm" type="submit" onclick="verGrupoinventario()" data-toggle="modal" data-target="#ModalLong">
+                <i class="nav-icon fas fa-search" aria-hidden="true"></i>
+              </button>
+               <button class="btn btn-info btn-sm" type="submit" onclick="editarGrupoinventario()" data-toggle="modal" data-target="#ModalLong2">
+                <i class="nav-icon fa fa-pencil-alt" aria-hidden="true"></i>
+              </button> 
+               <button class="btn btn-danger btn-sm" type="submit" onclick="eliminarGrupoinventario()">
+                <i class="nav-icon fa fa-times" aria-hidden="true"></i>
+              </button>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Gestion de Grupo Inventario</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>1) Grupo Inventario:</label>
+                      <select multiple class="form-control" id="select-grupoinventario">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>2) Sub-Grupo Inventario 1:</label>
+                      <select multiple class="form-control" id="select-subgrupoinventario1">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>3) Sub-Grupo Inventario 2:</label>
+                      <select multiple class="form-control" id="select-subgrupoinventario2">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>4) Sub-Grupo Inventario 3:</label>
+                      <select multiple class="form-control" id="select-subgrupoinventario3">
+                        <!-- <option>option 1</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          </div>
+          <input type="text" id="id" class="form-control" hidden>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        </div>
+        <input type="text" id="posicion" class="form-control" hidden>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Lista de Grupo Inventario</h3>
+          </div>
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+            
+
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+
+<div id="mymodal"></div>
+
+  <div class="card-footer"></div>
+
+</div>
+
+
+<script src="../../build/js/grupoinventariosdependientes/index.js"></script>

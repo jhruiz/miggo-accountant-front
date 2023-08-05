@@ -1,0 +1,122 @@
+<!-- Preloader -->
+<div class="preloader flex-column justify-content-center align-items-center">
+<img class="animation__shake" src="../../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+</div>
+
+<div class="card" id="content-usuarios">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-12">
+                <h4>
+                    <i class="nav-icon fas fa-user"></i>
+                    Editar Usuario                               
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        
+        
+        <form id="form"  method="PUT" action="" enctype="multipart/form-data">
+
+                    <div id="mostrarImagen" stye="display:flex;"></div>
+                    <div class="form-group">
+                    <div class="custom-file">
+                    <input class="btn btn-success col fileinput" type="file" id="imagen"></div>
+                    </div>
+
+                <div class="form-group">
+                    <label>Email <code> &nbsp;*</code></label>
+                    <div class="input-group mb-6">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="text" id="email" class="form-control" placeholder="Email" required>  
+                    </div> 
+                </div>
+    
+                <div class="form-group">
+                    <label>Contraseña <code> &nbsp;*</code></label>
+                    <div class="input-group mb-6">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="password" id="password" class="form-control" placeholder="Password" autocomplete="new-password">
+                    </div> 
+                </div>
+
+              <div class="form-group">
+                <label for="exampleSelectRounded0">Perfil (Nivel) <code> &nbsp;*</code></label>
+                <select class="custom-select rounded-0" id="select-perfiles" required>
+
+                </select>
+              </div>
+
+                <div class="form-group">
+                    <label for="tercero">Empleado: </label>
+                    <input class="form-control input-texto-alfanumerico" id="tercero" placeholder="El nombre del Empleado">
+                  </div>
+        
+                   <input type="text" id='tercero_id' hidden>
+
+        
+                   <div class="form-group">
+                    <label>Apellidos</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        </div>
+                        <input type="text" id="apellidos" class="form-control input-texto-espacio" placeholder="Apellidos" disabled> 
+                    </div>
+                </div>
+
+                        <div class="form-group">
+                            <label>Celular</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                </div>
+                                <input type="text" id="celular" class="form-control input-numero" placeholder="Celular" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleSelectRounded0">Ciudad</label>
+                            <select class="custom-select rounded-0" id="select-ciudad" disabled>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                        <label>Direccion</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div>
+                            <textarea id="direccion" class="form-control" rows="4" placeholder="Dirección ..." disabled></textarea>
+                        </div> 
+                        </div> 
+
+            <output id="output"></output>
+
+
+            <div class="col-12 float-right">
+                <button type="submit" id="actualizar" class="btn btn-primary float-right">Actualizar</button>
+            </div> 
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+
+
+</script>
+
+<!-- validaciones -->
+<script src="../../build/js/validaciones.js"></script>
+<script src="../../build/js/usuarios/edit.js"></script>

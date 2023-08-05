@@ -1,0 +1,90 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <i class="nav-icon fas fa-user"></i>
+            Ver Unidad Medida </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+<!--  -->
+
+<div class="card">
+
+  <div class="card-body">
+      
+      
+      <form  method="PUT" action="" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+          <label>Codigo </label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div> 
+              <input type="text" id="codigo" class="form-control input-texto-alfanumerico" placeholder="Unidad de Medida" disabled>  
+          </div> 
+      </div> 
+
+      <div class="form-group">
+          <label>Nombre </label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div> 
+              <textarea id="descripcion" class="form-control" rows="2" placeholder="Descripcion ..." disabled></textarea>
+          </div> 
+      </div> 
+
+      <div class="form-group">
+        <label for="responsable">codigo DIAN <code> &nbsp;*</code></label>
+        <input class="form-control input-texto-alfanumerico" id="codigodianunidade" placeholder="Codigo DIAN" disabled>
+    </div>
+        <input class="form-control input-texto-alfanumerico" id="codigodianunidade_id" hidden> 
+
+      <div class="form-group clearfix">
+          <div class="icheck-primary d-inline">
+          <input type="checkbox" id="unidadpeso" disabled>
+          <label for="unidadpeso">
+              Unidad Peso
+          </label>
+          </div>
+      </div>
+
+      <div class="form-group" id="divFactorgramos" style="display: none;">
+          <label>Factor Gramos </label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div> 
+              <input type="text" id="factorgramos" class="form-control input-numero" placeholder="Factor En Gramo" disabled>
+          </div> 
+      </div> 
+
+        <div class="col-12 float-right">
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cerrar</button>
+        </div>
+
+      </form>
+
+  </div>
+
+</div>
+</div>
+
+<!--  -->
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../../build/js/unidadesmedidas/show.js"></script>

@@ -1,0 +1,193 @@
+<div class="card card-main-content">
+    <div class="card-header">
+        <h2 class="card-title"><b>
+        </b></h2>
+    </div>
+  
+  <div class="card-body-datatable">
+  
+  
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            
+          </div>
+        </div>
+        <div class="row">
+
+
+
+
+          <div class="col-sm-6">
+                
+            <div class="form-group">
+                <label for="exampleSelectRounded0">Listas Aplicables</label>
+                <select multiple class="form-control" id="select-aplicables" required>
+                  <option value="grupoinventarios">Grupos de Inventario</option>
+                  <option value="zonaventas">Zona de Ventas</option>
+                  <option value="servicios">Servicios</option>
+                  <option value="articulos">Articulos</option>
+                  <option value="clientes">Clientes</option>
+                </select>
+              </div>
+  
+           </div>
+
+
+          <div class="col-sm-6">
+                
+
+                      <form method="POST" id="form" action="" enctype="multipart/form-data" class="form-inline">
+
+ 
+                       
+                        <div class="col-sm-12">
+                            <h5 id="listadescuento"></h5>
+                          </div>
+
+                
+                          <div class="col-sm-12">
+
+
+                                    <div class="form-group mx-sm-8 mb-2" id="divG" style="display: none;">
+                                      <label for="select-grupoinventario" class="sr-only">Grupo Inventario</label>
+                                      <select class="form-control" id="select-grupoinventario">
+                                      </select>
+                                    </div>
+
+
+                                  <div class="form-group mx-sm-8 mb-2" id="divZ" style="display: none;">
+                                    <label for="select-zonaventas" class="sr-only">Zona de venta</label>
+                                    <select class="form-control" id="select-zonaventas">
+                                    </select>
+                                  </div>
+                      
+
+                                  <div class="form-group mx-sm-8 mb-2" id="divC" style="display: none;">
+                                    <label for="select-clientes" class="sr-only">Clientes</label>
+                                    <select class="form-control" id="select-clientes">
+                                    </select>
+                                  </div>
+                      
+                                
+                                <div class="form-group mx-sm-8 mb-2" id="divS" style="display: none;">
+                                  <label for="select-servicios" class="sr-only">Servicios</label>
+                                  <select class="form-control" id="select-servicios">
+                                  </select>
+                                </div>
+                    
+                              <div class="form-group mx-sm-8 mb-2" id="divA" style="display: none;">
+                                <label for="select-articulos" class="sr-only">Articulos</label>
+                                <select class="form-control" id="select-articulos">
+                                </select>
+                              </div>
+
+                              
+                            </div>
+                            
+                              <div class="col-sm-12 text-center">
+                                <button type="button" id="vincular" class="btn btn-primary mb-2">Vincular</button>
+                              </div>
+        
+                    
+              
+                      </form>
+              
+        </div>
+
+
+        </div>
+      </div>
+    </section>
+  
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+  
+  
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" id="saludo">Lista Descuento Aplicar Detallados: </h3>
+              </div>
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-striped">
+                
+  
+  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+  
+  <div id="mymodal"></div>
+  
+    <div class="card-footer">
+
+      <input type="text" id="aplicable" hidden>
+      <input type="text" id="id" hidden>
+    </div>
+  
+  </div>
+  
+
+<script src="../../build/js/listadescuentoGrupoinventario/edit.js"></script>
+  
+
+<script>
+
+$('#select-aplicables').on('click', function (){
+    $('#aplicable').val($(this).val());
+    infoTable2();
+})
+
+$('#select-grupoinventario').on('change', function (){
+  $('#id').val($(this).val()); 
+  $('#select-zonaventas').val('');
+  $('#select-clientes').val('');
+  $('#select-servicios').val('');
+  $('#select-articulos').val('');
+})
+
+$('#select-zonaventas').on('change', function (){
+  $('#id').val($(this).val()); 
+  $('#select-grupoinventario').val('');
+  $('#select-clientes').val('');
+  $('#select-servicios').val('');
+  $('#select-articulos').val('');
+})
+
+$('#select-clientes').on('change', function (){
+  $('#id').val($(this).val()); 
+  $('#select-grupoinventario').val('');
+  $('#select-zonaventas').val('');
+  $('#select-servicios').val('');
+  $('#select-articulos').val('');
+})
+
+$('#select-servicios').on('change', function (){
+  $('#id').val($(this).val()); 
+  $('#select-grupoinventario').val('');
+  $('#select-zonaventas').val('');
+  $('#select-clientes').val('');
+  $('#select-articulos').val('');
+})
+
+$('#select-articulos').on('change', function (){
+  $('#id').val($(this).val()); 
+  $('#select-grupoinventario').val('');
+  $('#select-zonaventas').val('');
+  $('#select-clientes').val('');
+  $('#select-servicios').val('');
+})
+
+// http://localhost:85/miggo-accountant-back/public/api/listadescuentos/1/aplicables/1?aplicar=zonaventas
+
+</script>
